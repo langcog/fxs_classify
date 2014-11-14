@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: CVPR_ID_2036.aux
+The style file: ieee.bst
+Database file #1: fxs-cvpr.bib
+Warning--empty year in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
+Warning--empty year in hamidss
+Warning--empty year in entrophy
+Warning--empty journal in Bouvrie:2006vb
+Warning--empty year in FromEgotoNosVisionDetectingSocialRelationshipsinFirstPersonViewsAlletto:wi
+You've used 38 entries,
+            2120 wiz_defined-function locations,
+            742 strings with 11899 characters,
+and the built_in function-call counts, 13805 in all, are:
+= -- 1342
+> -- 789
+< -- 4
++ -- 310
+- -- 272
+* -- 1080
+:= -- 2354
+add.period$ -- 119
+call.type$ -- 38
+change.case$ -- 250
+chr.to.int$ -- 0
+cite$ -- 43
+duplicate$ -- 459
+empty$ -- 962
+format.name$ -- 272
+if$ -- 2785
+int.to.chr$ -- 0
+int.to.str$ -- 38
+missing$ -- 38
+newline$ -- 193
+num.names$ -- 76
+pop$ -- 227
+preamble$ -- 1
+purify$ -- 212
+quote$ -- 0
+skip$ -- 320
+stack$ -- 0
+substring$ -- 805
+swap$ -- 79
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 152
+warning$ -- 5
+while$ -- 126
+width$ -- 40
+write$ -- 410
+(There were 5 warnings)

@@ -419,7 +419,7 @@ We use stochastic gradient descent to update the weights, where the learning rat
 %% End Comment %%
 
 \subsection {Other Classifiers}
-We train support vector machines (SVMs), Naive Bayes (NB) classifiers, and Hidden Markov Models (HMMs). 
+For comparison to our model, we train support vector machines (SVMs), Naive Bayes (NB) classifiers, and Hidden Markov Models (HMMs). 
 
 We train SVMs using a chi-Squared kernel function to account for long sub-sequences of features with little variation (i.e. sequences with many 0's). 
 
@@ -431,11 +431,11 @@ For comparison with traditional temporal classifiers, we train a two-hidden-stat
 \begin{figure}[h]
         \centering
   
-        \subfigure[DD vs FXS Female]{
+        \subfigure[]{
              \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSfemale-SVM}
         }
             \hfill
-       \subfigure[DD vs FXS Male]{
+       \subfigure[]{
              \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSmale-SVM.jpg}
        }        \caption{Analysis of SVM classifier training and testing error as a function of time window  (in seconds) for pair-wise classifiers. One second of time corresponds to 5 features.}
         \label{fig:window_lengths}
