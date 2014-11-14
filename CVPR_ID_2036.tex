@@ -40,7 +40,7 @@
 \begin{document}
 
 %%%%%%%%% TITLE
-\title{Visual-assisted mental health classification via temporal eye-tracking data}
+\title{Vision-based classification of developmental disorders via temporal structure in eye-movements}
 
 \author{{\bf Guido Pusiol}
 \texttt{pusiol@stanford.edu}
@@ -66,9 +66,10 @@ Stanford University}
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-This paper proposes a system to quantitatively distinguish between fine-grained categories of cognitive mental impairments by extracting attention patterns in the eye movements of individuals.  
-Using a new dataset of interviews of participants with mental disorders, we build visual features that can distinguish between known mental conditions. Whereas psychologists typically rely on hours spent with participants and extensive tests to determine which condition an individual is afflicted by, we demonstrate that an initial screening is possible strictly from multi-modal visual data.
-Our method highlights the existence of detectable visual patterns that underlie these diseases. As our primary classification model, we design a one-dimensional convolutional neural network that works with state-vectors, and we build a system that can be used to assist medical practitioners in diagnosing these diseases, in some cases achieving 90\% precision on our dataset.
+\noindent This paper proposes a system for classifying developmental disorders via measurements of individuals' eye-movements during naturalistic social interaction.
+Using a new dataset of eye-tracking during interviews with patients, we build visual features that can distinguish between Fragile-X syndrome (a genetic disorder with Autism-like symptoms) and other idiopathic developmental disabilities. 
+We design a one-dimensional convolutional neural network with state-vector inputs that outperforms a number of baseline systems, achieving 90\% precision on a subset of the data.
+Fragile-X is an important case study for autism diagnosis because of the existence of gold-standard genetic diagnoses. By highlighting the existence of detectable visual patterns of social attention, our results suggest that these methods can be generalized to autism spectrum disorders more broadly and that they have the potential to assist medical practitioners in the diagnostic process. 
 \end{abstract}
    
 %%%%%%%%% BODY TEXT
@@ -101,8 +102,9 @@ This paper is divided as follows. In section 2, we discuss prior work. In sectio
  
  %%%%%%%%% DATASET %%%%%%%%%%
 \section{Dataset}
+
 \subsection{Participants}
-We use data from two groups of professionally-diagnosed participants with either an idiopathic developmental disorder (DD) or Fragile-X-Syndrome (FXS). There are known gender-related behavioral differences between FXS participants, so we further sub-divide them into male (FXS-M) and female (FXS-F) participants. There are no gender-related behavioral differences in the DD group. DD participants have been genetically tested to confirm that their disorder was not FXS. Participants are between 12 and 28 years old. The dataset is composed of fifty-one participants with FXS (32 male, 19 female) and 19 individuals diagnosed with DD. The two groups were well matched in terms of chronological age and developmental age. They present similar mean scores on the Vineland Adaptive Behavior Scales (VABS) a well-established measure of developmental functioning. The score was 58.47 (std = 23.47) for individuals with FXS and 57.68 (std = 16.78) for controls, indicating that the level of cognitive functioning in the two groups is almost 3 standard deviations (std) below the mean.
+Participants were patients diagnosed with either an idiopathic developmental disorder or Fragile-X-Syndrome (FXS). There are known gender-related behavioral differences between FXS participants, so we further subdivided this group by gender into males (FXS-M) and females (FXS-F). There were no gender-related behavioral differences in the DD group, and genetic testing confirmed that DD patients did not have FXS. Patients were between 12 and 28 years old, with 51 FXS patients (32 male, 19 female) and 19 DD patients. The two groups were well-matched on chronological and developmental age, and had similar mean scores on the Vineland Adaptive Behavior Scales (VABS), a well-established measure of developmental functioning. The score was 58.47 (std = 23.47) for individuals with FXS and 57.68 (std = 16.78) for controls, indicating that the level of cognitive functioning in the two groups is almost 3 standard deviations (std) below the mean.
 
 %a well-established measure of developmental functioning. The VABS adaptive behavior composite standard score was 58.47 (SD = 23.47) for individuals with FXS and 57.68 (SD = 16.78) for controls, indicating that the level of cognitive functioning in the two groups was almost 3 standard deviations below the mean.
 
@@ -311,7 +313,7 @@ Furthermore, we vary $w$ in order to understand the volatility of the signals fr
          \centering
          \subfigure[FXS-M]{
              \includegraphics[width=0.2\textwidth]{figures/FXMen}}
-        \caption{Analysis of the $ApEn$ of the data per individual varying the dimension parameter $w$. Y-axis is $ApEn$ and X-axis varies $w$. Each curve represents one participant's data.}
+        \caption{Analysis of the $ApEn$ of the data per individual varying the dimension parameter $w$. Y-axis is $ApEn$ and X-axis varies $w$. Each line represents one participant's data.}
         \label{fig:individual_entropy}
 \end{figure}
 
