@@ -20,9 +20,9 @@
 \citation{Kennedy:2001dg}
 \citation{Rehg}
 \@writefile{toc}{\contentsline {section}{\numberline {1}\hskip -1em.\nobreakspace  {}Introduction}{1}{section.1}}
+\@writefile{brf}{\backcite{Hagerman:2008wg}{{1}{1}{figure.1}}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their mental disorder. The goal of our work is to classify between disorders using this data.}}{1}{figure.1}}
 \newlabel{fig:pull_figure}{{1}{1}{We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their mental disorder. The goal of our work is to classify between disorders using this data}{figure.1}{}}
-\@writefile{brf}{\backcite{Hagerman:2008wg}{{1}{1}{figure.1}}}
 \@writefile{brf}{\backcite{Cohen:1988vx,Cohen:1989cm}{{1}{1}{figure.1}}}
 \@writefile{brf}{\backcite{Kennedy:2001dg}{{1}{1}{figure.1}}}
 \@writefile{brf}{\backcite{Rehg}{{1}{1}{figure.1}}}
@@ -84,15 +84,16 @@
 \newlabel{sec:feature_extraction}{{5}{3}{\hskip -1em.~Feature Extraction\relax }{section.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace  {}Face-mark Extraction}{3}{subsection.5.1}}
 \@writefile{brf}{\backcite{dpmface}{{3}{5.1}{subsection.5.1}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace  {}Feature Construction}{3}{subsection.5.2}}
+\newlabel{ssec:feature_construction}{{5.2}{3}{\hskip -1em.~Feature Construction\relax }{subsection.5.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Face marks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these marks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of unseen participants (10) are used to predict their mental disorder (11).}}{4}{figure.4}}
 \newlabel{fig:system_architecture}{{4}{4}{System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Face marks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these marks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of unseen participants (10) are used to predict their mental disorder (11)}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace  {}Feature Construction}{4}{subsection.5.2}}
-\newlabel{ssec:feature_construction}{{5.2}{4}{\hskip -1em.~Feature Construction\relax }{subsection.5.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Clustering of the 69 key-marks of the interviewer's face into 5 semantic facial regions. The colors represent the clustering of these marks into 5 facial regions. A 6th region, not shown, is reserved for when the participants look away from the face. These clusters represents our features.}}{4}{figure.5}}
 \newlabel{fig:feats}{{5}{4}{Clustering of the 69 key-marks of the interviewer's face into 5 semantic facial regions. The colors represent the clustering of these marks into 5 facial regions. A 6th region, not shown, is reserved for when the participants look away from the face. These clusters represents our features}{figure.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}\hskip -1em.\nobreakspace  {}Notation}{4}{subsection.5.3}}
 \newlabel{sec:notation}{{5.3}{4}{\hskip -1em.~Notation\relax }{subsection.5.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}\hskip -1em.\nobreakspace  {}Fourier Analysis of Features}{4}{subsection.5.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}\hskip -1em.\nobreakspace  {}Descriptive Analysis}{4}{subsection.5.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}Fourier Analysis of Features}{4}{subsubsection.5.4.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Facial Region State Vectors. The 5 facial regions and the non-face region are represented as state-vector features $f_i$. A sliding window technique is used to extract the input into our classifiers.}}{4}{figure.6}}
 \newlabel{fig:statevectors}{{6}{4}{Facial Region State Vectors. The 5 facial regions and the non-face region are represented as state-vector features $f_i$. A sliding window technique is used to extract the input into our classifiers}{figure.6}{}}
 \citation{Restrepo:2014gs}
@@ -105,10 +106,10 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {DD}}}{5}{figure.7}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {FXS-F}}}{5}{figure.7}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {FXS-M}}}{5}{figure.7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}\hskip -1em.\nobreakspace  {}Feature Granularity}{5}{subsection.5.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}\hskip -1em.\nobreakspace  {}Attentional transitions}{5}{subsection.5.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}\hskip -1em.\nobreakspace  {}Approximate Entropy}{5}{subsection.5.7}}
-\@writefile{brf}{\backcite{Restrepo:2014gs,entrophy}{{5}{5.7}{subsection.5.7}}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Feature Granularity}{5}{subsubsection.5.4.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3}Attentional transitions}{5}{subsubsection.5.4.3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.4}Approximate Entropy}{5}{subsubsection.5.4.4}}
+\@writefile{brf}{\backcite{Restrepo:2014gs,entrophy}{{5}{5.4.4}{subsubsection.5.4.4}}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Matrix of attentional transitions for each disorder. Each square $[ij]$ represents the aggregated number of times participants of each group transitioned attention from state $i$ to state $j$. The axes represent the different states: non-face (0), nose (1), eye-left (2), eye-right (3), mouth (4), and jaw (5).}}{5}{figure.8}}
 \newlabel{fig:transitions}{{8}{5}{Matrix of attentional transitions for each disorder. Each square $[ij]$ represents the aggregated number of times participants of each group transitioned attention from state $i$ to state $j$. The axes represent the different states: non-face (0), nose (1), eye-left (2), eye-right (3), mouth (4), and jaw (5)}{figure.8}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {DD}}}{5}{figure.8}}
@@ -129,9 +130,6 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Dimension}}}{6}{figure.10}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace  {}Training of Classifiers}{6}{section.6}}
 \newlabel{sec:classification}{{6}{6}{\hskip -1em.~Training of Classifiers\relax }{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}\hskip -1em.\nobreakspace  {}State Vector CNN}{6}{subsection.6.1}}
-\newlabel{sec:CNN}{{6.1}{6}{\hskip -1em.~State Vector CNN\relax }{subsection.6.1}{}}
-\@writefile{brf}{\backcite{Krizhevsky:2012wl, hamidss, Bouvrie:2006vb,lecun}{{6}{6.1}{subsection.6.1}}}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Analysis of the $ApEn$ of the data per individual varying the dimension parameter $w$. Y-axis is $ApEn$ and X-axis varies $w$. Each line represents one participant's data.}}{6}{figure.11}}
 \newlabel{fig:individual_entropy}{{11}{6}{Analysis of the $ApEn$ of the data per individual varying the dimension parameter $w$. Y-axis is $ApEn$ and X-axis varies $w$. Each line represents one participant's data}{figure.11}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {DD}}}{6}{figure.11}}
@@ -139,6 +137,9 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {FXS-M}}}{6}{figure.11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Convolutional Neural Network Design. The input is a binary vector representing a sequence of features. The CNN is composed of a single hidden layer and an output layer. The filters are chosen to be an integer multiple of 6, the length of the state vectors. The output is a sigmoid, thresholded to 0.5 for classification}}{7}{figure.12}}
 \newlabel{fig:conv}{{12}{7}{Convolutional Neural Network Design. The input is a binary vector representing a sequence of features. The CNN is composed of a single hidden layer and an output layer. The filters are chosen to be an integer multiple of 6, the length of the state vectors. The output is a sigmoid, thresholded to 0.5 for classification\relax }{figure.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}\hskip -1em.\nobreakspace  {}State Vector CNN}{7}{subsection.6.1}}
+\newlabel{sec:CNN}{{6.1}{7}{\hskip -1em.~State Vector CNN\relax }{subsection.6.1}{}}
+\@writefile{brf}{\backcite{Krizhevsky:2012wl, hamidss, Bouvrie:2006vb,lecun}{{7}{6.1}{subsection.6.1}}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}\hskip -1em.\nobreakspace  {}Other Classifiers}{7}{subsection.6.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Analysis of SVM classifier training and testing error as a function of time window (in seconds) for pair-wise classifiers. One second of time corresponds to 5 features.}}{7}{figure.13}}
 \newlabel{fig:window_lengths}{{13}{7}{Analysis of SVM classifier training and testing error as a function of time window (in seconds) for pair-wise classifiers. One second of time corresponds to 5 features}{figure.13}{}}

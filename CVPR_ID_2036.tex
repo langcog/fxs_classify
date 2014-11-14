@@ -40,7 +40,7 @@
 \begin{document}
 
 %%%%%%%%% TITLE
-\title{Vision-based classification of developmental disorders via temporal structure in eye-movements}
+\title{Vision-based classification of developmental disorders using eye-movements}
 
 \author{{\bf Guido Pusiol}
 \texttt{pusiol@cs.stanford.edu}
@@ -207,11 +207,14 @@ S_c=\{p^1, p^2,...p^N \}
 %=\{f_1^1, f_2^1,....f_{T_1}^1, f_1^2, f_2^2,....f_{T_2}^2,... f_1^N, f_2^N,....f_{T_N}^N\}
 \end{equation}
  where $c$ indexes \{DD, FXS-female, FXS-male\}.
+\subsection{Descriptive Analysis}
 
-\subsection{Fourier Analysis of Features}
+We next briefly present a number of descriptive analyses of the dataset that explore the complexity of this rich data and justify the importance of using temporal information in classification.
+
+\subsubsection{Fourier Analysis of Features}
 We consider the spectra of the time-series for each group (DD, FXS-male, FXS-female) by concatenating the integer-representation time-series of each patient $\bar{p}^\alpha=[\bar{f}_1^\alpha, \bar{f}_2^\alpha,....\bar{f}_{T_\alpha}^\alpha]$ of the group into one time-series $\bar{S}_c=\{\bar{p}^1, \bar{p}^2,...\bar{p}^N \}$ and taking the Fourier transform. What we find is that each group exhibits strong near-zero-frequency components with weak and noisy higher order components. We further find that the spectra of the signal after eliminating the non-face state vectors has the same pattern. This implies that there exist no characteristic oscillatory movements in the data and that participants tend either to fixate to a single region of the face or scan across multiple regions. 
 
-\subsection{Feature Granularity}
+\subsubsection{Feature Granularity}
 
 It is clinically relevant to analyze the distribution over time of the attention of the participants to different regions of the face.  As seen in Figure \ref{fig:histo}, participants spend the majority of the interview looking away from the interviewer, and only a fraction of the time looking at the interviewer's face. Considering the feature distribution over the face, Figure \ref{fig:histo}(d)-(f), we see that DD and FXS-F are quite similar, whereas FXS-M is distinct. FXS-M focuses primarily on mouth (4) and nose (1) areas. This justifies the use of a finer granularity of face regions to construct features as opposed to coarser features based on whether or not individuals are looking at the face.
 \begin{figure}%[t]
@@ -243,7 +246,7 @@ It is clinically relevant to analyze the distribution over time of the attention
 \end{figure}
 
 
-\subsection{Attentional transitions}
+\subsubsection{Attentional transitions}
 It is also clinically relevant to analyze the transitions between facial regions in time. Figure \ref{fig:transitions} shows these transitions in a color map. We find a marked difference between the different disorders. Individuals with DD exhibit greater counts of transitions, whereas those with FXS exhibit significantly less. The transitions between facial regions better identify the three groups than the transitions from non-face to face regions. FXS-M participants tend to swap their gaze quite frequently between mouth and nose, whereas the other two do not. DD participants exhibit much movement between facial regions, without any clear preference. FXS-F patterns resemble DD, though they are much less pronounced.
 
 \begin{figure}[b]
@@ -284,7 +287,7 @@ There is significant variance amongst individuals in the same group, making it c
 \end{figure}
 
 
-\subsection{Approximate Entropy} 
+\subsubsection{Approximate Entropy} 
  Approximate Entropy ($ApEn$) analysis provided a measure of how predictable a sequence is. The $ApEN$ of a signal is a value in $[0,1]$, where a higher entropy value indicates unpredictability of fluctuations in the signal, and a low value indicates a high degree of regularity. We employ ($ApEn$) analysis \cite{Restrepo:2014gs,entrophy} to further emphasize the similarity between DD and FXS-F signals and the difference between FXS-M and the other two. $ApEn$ measures the logarithmic likelihood that if two vectors $(q^{w}_{i}, q^{w}_{j})$ representing feature sequences of length $w$ are within a distance $R$, called the tolerance, in a w-dimensional space, then they remain within R in a $(w + 1)$-dimensional space when their length is extended by an extra feature. Greater (lesser) likelihood of remaining close produces smaller (larger) $ApEn$ values. To estimate $ApEn(R, m, N)$ for a length N feature sequence $Q={\bar{f}_1, \bar{f}_2, . . . , \bar{f}_{N}}$, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$, we define the $w$-dimensional embedded vectors $q^{m}_{i}=[\bar{f}_{i}, \bar{f}_{i+\tau}, \bar{f}_{i+2\tau}, . . . , \bar{f}_{i+(m-1)\tau}]$, with $1 \leq i \leq N-(m-1)\tau$. 
 
 We have measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each group $S_c$ we select 10 random participants (about 30,000 features $\bar{f}_i$). %$Q$ contains the vectors $u$ of features of $\sim$10 participants per group. The participants are chosen randomly. 
@@ -423,11 +426,11 @@ For comparison with traditional temporal classifiers, we train a two-hidden-stat
         \centering
   
         \subfigure[DD vs FXS Female]{
-             \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSfemale-SVM}
+             \includegraphics[width=0.25\textwidth]{figures/Temporal-DDvsFXSfemale-SVM}
         }
             \hfill
        \subfigure[DD vs FXS Male]{
-             \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSmale-SVM.jpg}
+             \includegraphics[width=0.25\textwidth]{figures/Temporal-DDvsFXSmale-SVM.jpg}
        }        \caption{Analysis of SVM classifier training and testing error as a function of time window  (in seconds) for pair-wise classifiers. One second of time corresponds to 5 features.}
         \label{fig:window_lengths}
 \end{figure}
