@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{stmaryrd}
+% \usepackage{stmaryrd}
 \usepackage{graphicx}
 \usepackage{pslatex}
 \usepackage{subfigure}
@@ -78,7 +78,7 @@ Our method highlights the existence of detectable visual patterns that underlie 
 Autism Spectrum Disorder (ASD), is an important mental disorder to account for and understand in our society today. Significant efforts are spent in early diagnosis, which is a key component to proper treatment.  Today, identification of a disability requires a set of cognitive tests and hours spent on clinical evaluations which involve extensively interviewing the participant and observing their behavioral patterns (i.e. their social engagement with others). Physicians go through extensive training and require substantial experience to properly assess ASD.  The problem with this procedure is that it is both laborious and imprecise due to variability in the clinician's subjective judgement. With the advent of computers and machine learning techniques, people are beginning to look for computer-assisted technology to identify ASD. 
 
 \begin{figure}[ht]   
-\includegraphics[width=0.45\textwidth]{Pull.png}
+\includegraphics[width=0.45\textwidth]{figures/Pull.png}
 \caption{We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their mental disorder. The goal of our work is to classify between disorders using this data.}
 \label{fig:pull_figure}
 \end{figure} 
@@ -112,7 +112,7 @@ The participants were each interviewed for a period of $\sim$10 minutes by a hea
 
 \begin{figure}[ht]   
  \centering
-           \includegraphics[width=2in,height= 1.5in]{Real.png}
+           \includegraphics[width=2in,height= 1.5in]{figures/Real.png}
  \caption{A frame from videos showing the participant's view (participant's head is visible in the bottom of the frame). Eye-movements are tracked with a remote eye-tracker and mapped into the coordinate space of this video.}
 \label{fig:environment}
 \end{figure}
@@ -129,19 +129,19 @@ The assistive system takes as input multi-sensorial eye-tracking and video data 
 
 \begin{figure}
           \subfigure[]{
-             \includegraphics[width=0.6in,height=0.7in]{CVIM/movement1.png}
+             \includegraphics[width=0.6in,height=0.7in]{figures/movement1.png}
              } 
                   \hfill   
             \subfigure[]{
-            \includegraphics[width=0.6in,height= 0.7in]{CVIM/movement2.png} 
+            \includegraphics[width=0.6in,height= 0.7in]{figures/movement2.png} 
             }
                  \hfill
              \subfigure[]{
-            \includegraphics[width=0.6in,height= 0.7in]{CVIM/margin.png} 
+            \includegraphics[width=0.6in,height= 0.7in]{figures/margin.png} 
             }
                  \hfill
              \subfigure[]{
-            \includegraphics[width=0.6in,height= 0.7in]{CVIM/margin2.png} 
+            \includegraphics[width=0.6in,height= 0.7in]{figures/margin2.png} 
             }
     \caption{Face Motion Analysis. (a) The worst case of high motion of the interviewer; (b) the most steady interviewer. In all cases the interviewers are instructed to limit their head movement as much as possible; (c) and (d) represent the 20 px threshold radius surrounding the face key points. This threshold results in full face coverage across all interviews.}
 \label{fig:PERSON}
@@ -149,7 +149,7 @@ The assistive system takes as input multi-sensorial eye-tracking and video data 
 
 \begin{figure*}[ht]   
 \centering
-           \includegraphics[width=\textwidth]{system.png}           
+           \includegraphics[width=\textwidth]{figures/system.png}           
  \caption{System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Face marks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these marks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of  unseen participants (10) are used to predict their mental disorder (11).}
 \label{fig:system_architecture}
 \end{figure*}
@@ -172,7 +172,7 @@ The eye-tracking system is calibrated to the camera coordinate system. We map th
 
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[width=0.5\linewidth]{face2.png}
+        \includegraphics[width=0.5\linewidth]{figures/face2.png}
     \end{center}
     \caption{Clustering of the 69 key-marks of the interviewer's face into 5 semantic facial regions. The colors represent the clustering of these marks into 5 facial regions. A 6th region, not shown, is reserved for when the participants look away from the face. These clusters represents our features.}
     \label{fig:feats}
@@ -188,7 +188,7 @@ We represent these regions as state vectors, as shown in Figure  \ref{fig:statev
 
 \begin{figure}[b]
         \centering
-             \includegraphics[width=0.5\textwidth]{vectors.png}
+             \includegraphics[width=0.5\textwidth]{figures/vectors.png}
        \caption{Facial Region State Vectors. The 5 facial regions and the non-face region are represented as state-vector features $f_i$. A sliding window technique is used to extract the input into our classifiers.}
         \label{fig:statevectors}
 \end{figure}
@@ -214,26 +214,26 @@ We consider the spectra of the time-series for each group (DD, FXS-male, FXS-fem
 It is clinically relevant to analyze the distribution over time of the attention of the participants to different regions of the face.  As seen in Figure \ref{fig:histo}, participants spend the majority of the interview looking away from the interviewer, and only a fraction of the time looking at the interviewer's face. Considering the feature distribution over the face, Figure \ref{fig:histo}(d)-(f), we see that DD and FXS-F are quite similar, whereas FXS-M is distinct. FXS-M focuses primarily on mouth (4) and nose (1) areas. This justifies the use of a finer granularity of face regions to construct features as opposed to coarser features based on whether or not individuals are looking at the face.
 \begin{figure}%[t]
           \subfigure[ DD]{
-             \includegraphics[width=1in,height= 0.7in]{CVIM/semdd.png}
+             \includegraphics[width=1in,height= 0.7in]{figures/semdd.png}
              } 
                \hfill   
             \subfigure[FXS-F]{
-            \includegraphics[width=1in,height= 0.7in]{CVIM/semfemale.png} 
+            \includegraphics[width=1in,height= 0.7in]{figures/semfemale.png} 
             }
                \hfill
              \subfigure[FXS-M]{
-            \includegraphics[width=1in,height= 0.7in]{CVIM/semmale.png} 
+            \includegraphics[width=1in,height= 0.7in]{figures/semmale.png} 
             }
           \subfigure[DD]{
-             \includegraphics[width=1in,height= 0.7in]{CVIM/semdd-face.png}
+             \includegraphics[width=1in,height= 0.7in]{figures/semdd-face.png}
              } 
                \hfill   
             \subfigure[FXS-F]{
-            \includegraphics[width=1in,height= 0.7in]{CVIM/semfemale-face.png} 
+            \includegraphics[width=1in,height= 0.7in]{figures/semfemale-face.png} 
             }
                \hfill
              \subfigure[FXS-M]{
-            \includegraphics[width=1in,height= 0.7in]{CVIM/semmale-face.png} 
+            \includegraphics[width=1in,height= 0.7in]{figures/semmale-face.png} 
             }
             
 \caption{Feature histograms for the various disorders. X-axis represents different states: non-face (0), nose (1), eye-left (2), eye-right (3), mouth (4), and jaw (5). (a)-(c) feature histograms for all participants of each class. (d)-(f) equivalent histograms with the non-face state vector removed.}
@@ -246,15 +246,15 @@ It is also clinically relevant to analyze the transitions between facial regions
 
 \begin{figure}[b]
           \subfigure[DD]{
-             \includegraphics[width=1in,height= 0.7in]{CVIM/transdd.png}
+             \includegraphics[width=1in,height= 0.7in]{figures/transdd.png}
              } 
                \hfill   
             \subfigure[FXS-F]{
-            \includegraphics[width=1in,height= 0.7in]{CVIM/transfemale.png} 
+            \includegraphics[width=1in,height= 0.7in]{figures/transfemale.png} 
             }
                \hfill
              \subfigure[FXS-M]{
-            \includegraphics[width=1in,height= 0.7in]{CVIM/transmale.png} 
+            \includegraphics[width=1in,height= 0.7in]{figures/transmale.png} 
             }            
 \caption{Matrix of attentional transitions for each disorder. Each square $[ij]$ represents the aggregated number of times participants of each group transitioned attention from state $i$ to state $j$.  The axes represent the different states: non-face (0), nose (1), eye-left (2), eye-right (3), mouth (4), and jaw (5).}
 \label{fig:transitions}
@@ -265,16 +265,16 @@ There is significant variance amongst individuals in the same group, making it c
 \begin{figure}
        
        \subfigure[DD - Group]{
-             \includegraphics[width=0.22\textwidth]{DD-face.png}
+             \includegraphics[width=0.22\textwidth]{figures/DD-face.png}
             }
             \hfill
           \subfigure[FXS Female]{
-             \includegraphics[width=0.22\textwidth]{FXSF-face.png}
+             \includegraphics[width=0.22\textwidth]{figures/FXSF-face.png}
             }
             \hfill
             \centering
               \subfigure[FXS Male]{
-             \includegraphics[width=0.22\textwidth]{FXSM-face.png}
+             \includegraphics[width=0.22\textwidth]{figures/FXSM-face.png}
             }
         
          \caption{Temporal analysis of attention to face. X axis represents time in frames (in increments of 0.2 seconds). Y axis represents each participant. Black dot represent time points when the participant was looking at the interviewer's face. White space signifies that they were not.}
@@ -289,11 +289,11 @@ We have measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each
 We parametrize $\tau=1$ to capture the entropy of the shortest period of time allowed by the data resolution (0.2 seconds). The tolerance parameter $r=0.1k$, for $k=1...30$ defines the tolerance $R = \text{std}(Q)r$. Figure \ref{fig:entropy}(a) depicts the $ApEn$ for $m=3$ while varying r. The FXS-M data is more stable than DD and FXS-F data, which share a similar entropy. 
 \begin{figure}
         \subfigure[Tolerance Parameter]{
-             \includegraphics[width=0.2\textwidth]{entropy-r.png}
+             \includegraphics[width=0.2\textwidth]{figures/entropy-r.png}
         }
             \hfill
         \subfigure[Dimension]{
-             \includegraphics[width=0.2\textwidth]{entropy-w.png}      }
+             \includegraphics[width=0.2\textwidth]{figures/entropy-w.png}      }
        
         \caption{Analysis of the average $ApEN$ of the data for each participant class. X-axis represents (a) the tolerance parameter $r = R/std(Q)$, (b) the dimension parameter $w$.}
          \label{fig:entropy}
@@ -303,15 +303,15 @@ Furthermore, we vary $w$ in order to understand the volatility of the signals fr
 \begin{figure}[b]
         \centering
         \subfigure[DD]{
-             \includegraphics[width=0.2\textwidth]{DDen}
+             \includegraphics[width=0.2\textwidth]{figures/DDen}
         }
             \hfill
         \subfigure[FXS-F]{
-             \includegraphics[width=0.2\textwidth]{FXFen}      }
+             \includegraphics[width=0.2\textwidth]{figures/FXFen}      }
              \hfill
          \centering
          \subfigure[FXS-M]{
-             \includegraphics[width=0.2\textwidth]{FXMen}}
+             \includegraphics[width=0.2\textwidth]{figures/FXMen}}
         \caption{Analysis of the $ApEn$ of the data per individual varying the dimension parameter $w$. Y-axis is $ApEn$ and X-axis varies $w$. Each curve represents one participant's data.}
         \label{fig:individual_entropy}
 \end{figure}
@@ -348,7 +348,7 @@ We choose the kernel size $k$ of the hidden units and stride $s$ to be a multipl
 
 \begin{figure}
        \centering
-       \includegraphics[width=0.3\textwidth]{network.png}  
+       \includegraphics[width=0.3\textwidth]{figures/network.png}  
         \caption{Convolutional Neural Network Design. The input is a binary vector representing a sequence of features. The CNN is composed of a single hidden layer and an output layer. The filters are chosen to be an integer multiple of 6, the length of the state vectors. The output is a sigmoid, thresholded to 0.5 for classification}
               \label{fig:conv}
 \end{figure}
@@ -421,11 +421,11 @@ For comparison with traditional temporal classifiers, we train a two-hidden-stat
         \centering
   
         \subfigure[DD vs FXS Female]{
-             \includegraphics[width=0.35\textwidth]{CVIM/Temporal-DDvsFXSfemale-SVM}
+             \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSfemale-SVM}
         }
             \hfill
        \subfigure[DD vs FXS Male]{
-             \includegraphics[width=0.35\textwidth]{CVIM/Temporal-DDvsFXSmale-SVM.jpg}
+             \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSmale-SVM.jpg}
        }        \caption{Analysis of SVM classifier training and testing error as a function of time window  (in seconds) for pair-wise classifiers. One second of time corresponds to 5 features.}
         \label{fig:window_lengths}
 \end{figure}
@@ -510,7 +510,7 @@ This work serves as a proof of concept of the power of computer vision systems i
 
 {\small
 \bibliographystyle{ieee}
-\bibliography{giantGuidoBib}
+\bibliography{fxs-cvpr}
 }
 
 
