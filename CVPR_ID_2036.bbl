@@ -8,10 +8,9 @@ O.~Abdel-Hamid, A.~Mohamed, H.~Jiang, and G.~Penn.
   International Conference.}
 
 \bibitem{entrophy}
-K.~H. Approximate entropy for all~signals Chon, C.~Scully, S.~L. E.~i.
-  Medicine, and I.~Biology~Magazine.
+K.~H. Approximate entropy for all~signals Chon, C.~Scully, and S.~L. Medicine.
 \newblock {Approximate entropy for all signals}.
-\newblock 28(6).
+\newblock {\em Engineering in and Biology Magazine, IEEE}, 28(6).
 
 \bibitem{Boraston}
 Z.~Boraston and S.~J. Blakemore.
@@ -46,8 +45,8 @@ I.~L. Cohen, P.~M. Vietze, V.~Sudhalter, E.~C. Jenkins, and W.~T. Brown.
 \bibitem{Csibra:2006wf}
 G.~Csibra and G.~Gergely.
 \newblock {Social learning and social cognition: The case for pedagogy}.
-\newblock {\em \ldots in brain and cognitive development Attention and \ldots},
-  2006.
+\newblock {\em IN PROCESSES OF CHANGE IN BRAIN AND COGNITIVE DEVELOPMENT.
+  ATTENTION AND PERFORMANCE XXI}, 2006.
 
 \bibitem{dalton}
 K.~M. Dalton, B.~M. Nacewicz, T.~Johnstone, H.~S. Schaefer, M.~A. Gernsbacher,
@@ -135,7 +134,8 @@ C.~H. Kennedy, M.~Caruso, and T.~Thompson.
 \bibitem{Krizhevsky:2012wl}
 A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton.
 \newblock {Imagenet classification with deep convolutional neural networks}.
-\newblock {\em Advances in neural \ldots}, 2012.
+\newblock {\em Advances in Neural Information Processing Systems 25 (NIPS
+  2012)}, 2012.
 
 \bibitem{Kumar}
 Y.~Kumar, M.~L. Dewal, and R.~S. Anand.
@@ -146,12 +146,13 @@ Y.~Kumar, M.~L. Dewal, and R.~S. Anand.
 \bibitem{AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq}
 L.~L~Itti, C.~Koch, E.~P.~A. Niebur, and M.~I. I.~T. on.
 \newblock A model of saliency-based visual attention for rapid scene analysis.
-\newblock (11).
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions on
+  (Volume:20 , Issue: 11 )}, (11).
 
 \bibitem{lecun}
 B.~B. Le~Cun, J.~S. Denker, and D.~Henderson.
 \newblock {Handwritten digit recognition with a back-propagation network}.
-\newblock {\em Advances in neural \ldots}, 1990.
+\newblock {\em Advances in Neural Information Processing Systems}, 1990.
 
 \bibitem{Morales:2000br}
 M.~Morales, P.~Mundy, C.~E. Delgado, M.~Yale, R.~Neal, and H.~K. Schwartz.

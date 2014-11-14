@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  14 NOV 2014 12:41
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  14 NOV 2014 12:47
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1010,7 +1010,7 @@ Overfull \hbox (3.98207pt too wide) in paragraph at lines 465--493
 Underfull \vbox (badness 1939) has occurred while \output is active []
 
  [8]
-Underfull \hbox (badness 1067) in paragraph at lines 84--84
+Underfull \hbox (badness 1067) in paragraph at lines 83--83
 []\OT1/ptm/m/n/9 F. Farzin, F. Scaggs, C. Her-vey, E. Berry-Kravis, and
  []
 
@@ -1026,10 +1026,10 @@ Package rerunfilecheck Info: File `CVPR_ID_2036.brf' has not changed.
 (rerunfilecheck)             Checksum: 6C28CD4D1FC206D343F379E3721A6F8D;1284.
  ) 
 Here is how much of TeX's memory you used:
- 14139 strings out of 493747
- 231272 string characters out of 3143546
- 325446 words of memory out of 3000000
- 16891 multiletter control sequences out of 15000+200000
+ 14138 strings out of 493747
+ 231256 string characters out of 3143546
+ 325526 words of memory out of 3000000
+ 16890 multiletter control sequences out of 15000+200000
  59822 words of font info for 124 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  47i,12n,49p,1928b,462s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1045,7 +1045,7 @@ mf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2010/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on CVPR_ID_2036.pdf (10 pages, 3962304 bytes).
+Output written on CVPR_ID_2036.pdf (10 pages, 3962805 bytes).
 PDF statistics:
  389 PDF objects out of 1000 (max. 8388607)
  324 compressed objects within 4 object streams
