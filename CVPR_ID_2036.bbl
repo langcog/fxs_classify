@@ -5,7 +5,7 @@ L.~A~model of saliency-based visual attention for rapid scene~analysis Itti,
   C.~Koch, E.~P.~A. Niebur, and M.~I. I.~T. on.
 \newblock {A model of saliency-based visual attention for rapid scene
   analysis}.
-\newblock {\em Fathi, Alilreza}, 20(11).
+\newblock 20(11).
 
 \bibitem{hamidss}
 O.~Applying Convolutional Neural Networks concepts to hybrid NN-HMM model for
@@ -13,13 +13,12 @@ O.~Applying Convolutional Neural Networks concepts to hybrid NN-HMM model for
   S.~P. I. . I. I.~C. on.
 \newblock {Applying Convolutional Neural Networks concepts to hybrid NN-HMM
   model for speech recognition}.
-\newblock {\em Fathi, Alilreza}.
 
 \bibitem{entrophy}
 K.~H. Approximate entropy for all~signals Chon, C.~Scully, S.~L. E.~i.
   Medicine, and I.~Biology~Magazine.
 \newblock {Approximate entropy for all signals}.
-\newblock {\em Fathi, Alilreza}, 28(6).
+\newblock 28(6).
 
 \bibitem{Boraston}
 Z.~Boraston and S.~J. Blakemore.
@@ -107,7 +106,6 @@ S.~From Ego to Nos-Vision Detecting Social Relationships~in First-Person
   Views~Alletto, G.~Serra, S.~Calderara, F.~Solera, and R.~Cucchiara.
 \newblock {From Ego to Nos-Vision: Detecting Social Relationships in
   First-Person Views}.
-\newblock {\em Fathi, Alilreza}.
 
 \bibitem{Hagerman:2008wg}
 P.~J. Hagerman.
@@ -134,24 +132,12 @@ J.~Hashemi, T.~V. Spina, M.~Tepper, A.~Esler, V.~Morellas, N.~Papanikolopoulos,
 \newblock In {\em 2012 IEEE International Conference on Development and
   Learning and Epigenetic Robotics (ICDL)}, pages 1--7. IEEE, 2012.
 
-\bibitem{jones2013}
-W.~Jones and A.~Klin.
-\newblock Attention to eyes is present but in decline in 2-6-month-old infants
-  later diagnosed with autism.
-\newblock {\em Nature}, 2013.
-
 \bibitem{Kennedy:2001dg}
 C.~H. Kennedy, M.~Caruso, and T.~Thompson.
 \newblock {Experimental analyses of gene-brain-behavior relations: some notes
   on their application.}
 \newblock {\em Journal of Applied Behavior Analysis (Abstracts)},
   34(4):539--549, 2001.
-
-\bibitem{klin2002}
-A.~Klin, W.~Jones, R.~Schultz, F.~Volkmar, and D.~Cohen.
-\newblock Visual fixation patterns during viewing of naturalistic social
-  situations as predictors of social competence in individuals with autism.
-\newblock {\em Archives of general psychiatry}, 59(9):809--816, 2002.
 
 \bibitem{Krizhevsky:2012wl}
 A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton.

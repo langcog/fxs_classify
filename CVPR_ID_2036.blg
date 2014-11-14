@@ -1,52 +1,56 @@
-This is BibTeX, Version 0.99d (TeX Live 2012)
+This is BibTeX, Version 0.99d (TeX Live 2010)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: CVPR_ID_2036.aux
 The style file: ieee.bst
 Database file #1: fxs-cvpr.bib
+Warning--empty journal in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
 Warning--empty year in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
+Warning--empty journal in hamidss
 Warning--empty year in hamidss
+Warning--empty journal in entrophy
 Warning--empty year in entrophy
 Warning--empty journal in Bouvrie:2006vb
+Warning--empty journal in FromEgotoNosVisionDetectingSocialRelationshipsinFirstPersonViewsAlletto:wi
 Warning--empty year in FromEgotoNosVisionDetectingSocialRelationshipsinFirstPersonViewsAlletto:wi
-You've used 38 entries,
+You've used 36 entries,
             2120 wiz_defined-function locations,
-            742 strings with 11899 characters,
-and the built_in function-call counts, 13805 in all, are:
-= -- 1342
-> -- 789
+            727 strings with 11424 characters,
+and the built_in function-call counts, 13125 in all, are:
+= -- 1272
+> -- 748
 < -- 4
-+ -- 310
-- -- 272
-* -- 1080
-:= -- 2354
-add.period$ -- 119
-call.type$ -- 38
-change.case$ -- 250
++ -- 294
+- -- 258
+* -- 1031
+:= -- 2230
+add.period$ -- 111
+call.type$ -- 36
+change.case$ -- 237
 chr.to.int$ -- 0
-cite$ -- 43
-duplicate$ -- 459
-empty$ -- 962
-format.name$ -- 272
-if$ -- 2785
+cite$ -- 45
+duplicate$ -- 438
+empty$ -- 918
+format.name$ -- 258
+if$ -- 2648
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 38
-newline$ -- 193
-num.names$ -- 76
-pop$ -- 227
+int.to.str$ -- 36
+missing$ -- 36
+newline$ -- 181
+num.names$ -- 72
+pop$ -- 224
 preamble$ -- 1
-purify$ -- 212
+purify$ -- 201
 quote$ -- 0
-skip$ -- 320
+skip$ -- 305
 stack$ -- 0
-substring$ -- 805
-swap$ -- 79
+substring$ -- 770
+swap$ -- 73
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 152
-warning$ -- 5
-while$ -- 126
-width$ -- 40
-write$ -- 410
-(There were 5 warnings)
+type$ -- 144
+warning$ -- 9
+while$ -- 120
+width$ -- 38
+write$ -- 383
+(There were 9 warnings)
