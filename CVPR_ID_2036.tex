@@ -41,7 +41,7 @@
 \begin{document}
 
 %%%%%%%%% TITLE
-\title{Visual-assisted mental health classification via temporal eye-tracking data}
+\title{Vision-based classification of developmental disorders via temporal structure in eye-movements}
 
 \author{{\bf Guido Pusiol}
 \texttt{pusiol@stanford.edu}
@@ -67,9 +67,10 @@ Stanford University}
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-This paper proposes a system to quantitatively distinguish between fine-grained categories of cognitive mental impairments by extracting attention patterns in the eye movements of individuals.  
-Using a new dataset of interviews of participants with mental disorders, we build visual features that can distinguish between known mental conditions. Whereas psychologists typically rely on hours spent with participants and extensive tests to determine which condition an individual is afflicted by, we demonstrate that an initial screening is possible strictly from multi-modal visual data.
-Our method highlights the existence of detectable visual patterns that underlie these diseases. As our primary classification model, we design a one-dimensional convolutional neural network that works with state-vectors, and we build a system that can be used to assist medical practitioners in diagnosing these diseases, in some cases achieving 90\% precision on our dataset.
+\noindent This paper proposes a system for classifying developmental disorders via measurements of individuals' eye-movements during naturalistic social interaction.
+Using a new dataset of eye-tracking during interviews with patients, we build visual features that can distinguish between Fragile-X syndrome (a genetic disorder with Autism-like symptoms) and other idiopathic developmental disabilities. 
+We design a one-dimensional convolutional neural network with state-vector inputs that outperforms a number of baseline systems, achieving 90\% precision on a subset of the data.
+Fragile-X is an important case study for autism diagnosis because of the existence of gold-standard genetic diagnoses. By highlighting the existence of detectable visual patterns of social attention, our results suggest that these methods can be generalized to autism spectrum disorders more broadly and that they have the potential to assist medical practitioners in the diagnostic process. 
 \end{abstract}
    
 %%%%%%%%% BODY TEXT
@@ -312,7 +313,7 @@ Furthermore, we vary $w$ in order to understand the volatility of the signals fr
          \centering
          \subfigure[FXS-M]{
              \includegraphics[width=0.2\textwidth]{figures/FXMen}}
-        \caption{Analysis of the $ApEn$ of the data per individual varying the dimension parameter $w$. Y-axis is $ApEn$ and X-axis varies $w$. Each curve represents one participant's data.}
+        \caption{Analysis of the $ApEn$ of the data per individual varying the dimension parameter $w$. Y-axis is $ApEn$ and X-axis varies $w$. Each line represents one participant's data.}
         \label{fig:individual_entropy}
 \end{figure}
 
