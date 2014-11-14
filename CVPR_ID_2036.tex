@@ -80,7 +80,7 @@ Autism Spectrum Disorder (ASD), is an important developmental disorder to accoun
 \begin{figure}[ht]   
 \centering
 \includegraphics[width=0.48\textwidth]{figures/Pull.png}
-\caption{We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their mental disorder. The goal of our work is to classify between disorders using this data.}
+\caption{We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their developmental disorder. The goal of our work is to classify between disorders using this data.}
 \label{fig:pull_figure}
 \end{figure} 
 
@@ -121,7 +121,7 @@ Patients were each interviewed for $\sim$10 minutes by a clinically-trained expe
 
 %%% SECTION: SYSTEM ARCHITECTURE %%%%
 \section{System Architecture}
-The assistive system takes as input multi-sensorial eye-tracking and video data and outputs a prediction on the mental disorder of the participant. Figure \ref{fig:system_architecture} depicts the architecture of the system. It is composed of the following three parts, elaborated further in sections \ref{sec:feature_extraction}, \ref{sec:classification}, \ref{sec:participant_classification}:
+The assistive system takes as input multi-sensorial eye-tracking and video data and outputs a prediction on the developmental disorder of the participant. Figure \ref{fig:system_architecture} depicts the architecture of the system. It is composed of the following three parts, elaborated further in sections \ref{sec:feature_extraction}, \ref{sec:classification}, \ref{sec:participant_classification}:
 
 \textbf{Feature Extraction}. We build our features by mapping the eye-tracking information onto facial regions of the interviewer. 
 
@@ -152,7 +152,7 @@ The assistive system takes as input multi-sensorial eye-tracking and video data 
 \begin{figure*}[ht]   
 \centering
            \includegraphics[width=\textwidth]{figures/system.png}           
- \caption{System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Facial landmarks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these landmarks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of  unseen participants (10) are used to predict their mental disorder (11).}
+ \caption{System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Facial landmarks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these landmarks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of  unseen participants (10) are used to predict their developmental disorder (11).}
 \label{fig:system_architecture}
 \end{figure*}
 
@@ -466,9 +466,9 @@ Where $C_1, C_2 \in \{\text{DD}, \text{FXS-F}, \text{FXS-M}\}$, $\text{Class}(s)
 
 By varying the classification methods described in Section \ref{sec:classification} we perform a quantitative evaluation of the overall system.
 
-We assume the gender of the patient is known, and select the clinically-relevant pair-wise classification experiments DD vs FXS-F and DD vs FXS-M. For the experiments we use 32 FXS-male, 19 FXS-female and 19 DD participants. To maintain equal data distribution in training and testing we build $S_{train}$ and and $S_{test}$ randomly shuffling participants of each class ensuring a 50\%/50\% distribution of the two participant classes over the sets. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We classify the mental disorder of the participants, given their individual time-series feature data $p$, to evaluate the precision of our system. For N total participants, we create an 80\%/20\% training/testing dataset $S_{train} = \{ p^1, p^2, .... p^{0.8 N} \}$ and $S_{test} = \{ p^{0.8N + 1}, .... p^N \}$  such that no patient's data is shared between the two datasets. We perform 10-fold cross validation where each fold is defined by a new random 80/20 split of the participants. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We compare our custom S-CNN to SVM, NB, and HMM models using feature windows corresponding to 3, 10, and 50 seconds of video footage. These window lengths correspond to the observations presented in section \ref{sec:classification}.
+We assume the gender of the patient is known, and select the clinically-relevant pair-wise classification experiments DD vs FXS-F and DD vs FXS-M. For the experiments we use 32 FXS-male, 19 FXS-female and 19 DD participants. To maintain equal data distribution in training and testing we build $S_{train}$ and and $S_{test}$ randomly shuffling participants of each class ensuring a 50\%/50\% distribution of the two participant classes over the sets. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We classify the developmental disorder of the participants, given their individual time-series feature data $p$, to evaluate the precision of our system. For N total participants, we create an 80\%/20\% training/testing dataset $S_{train} = \{ p^1, p^2, .... p^{0.8 N} \}$ and $S_{test} = \{ p^{0.8N + 1}, .... p^N \}$  such that no patient's data is shared between the two datasets. We perform 10-fold cross validation where each fold is defined by a new random 80/20 split of the participants. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We compare our custom S-CNN to SVM, NB, and HMM models using feature windows corresponding to 3, 10, and 50 seconds of video footage. These window lengths correspond to the observations presented in section \ref{sec:classification}.
 
-The system is evaluated on the average precision with which it discerns mental disorders. The results are reported in Table  \ref{table:profiler}. We find that the highest average precision is attained using the S-CNN model with a 10 second time window. It classifies DD versus FXS-F with 0.68 precision and DD versus FXS-M with 0.90 precision, a remarkably high pair of accuracies given the challenges of working with such a noisy dataset. 
+The system is evaluated on the average precision with which it discerns developmental disorders. The results are reported in Table  \ref{table:profiler}. We find that the highest average precision is attained using the S-CNN model with a 10 second time window. It classifies DD versus FXS-F with 0.68 precision and DD versus FXS-M with 0.90 precision, a remarkably high pair of accuracies given the challenges of working with such a noisy dataset. 
 
 \begin{table}
 \begin{tabular}{c|c|c|c}
