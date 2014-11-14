@@ -1,10 +1,11 @@
 \begin{thebibliography}{10}\itemsep=-1pt
 
 \bibitem{hamidss}
-O.~Abdel-Hamid, A.~Mohamed, H.~Jiang, G.~A.~S. Penn, and S.~P. I. . I. I.~C.
-  on.
+O.~Abdel-Hamid, A.~Mohamed, H.~Jiang, and G.~Penn.
 \newblock {Applying Convolutional Neural Networks concepts to hybrid NN-HMM
   model for speech recognition}.
+\newblock {\em Acoustics Speech Signal Processing ICASSP 2012 IEEE
+  International Conference.}
 
 \bibitem{entrophy}
 K.~H. Approximate entropy for all~signals Chon, C.~Scully, S.~L. E.~i.

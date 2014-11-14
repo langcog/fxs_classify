@@ -3,12 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: CVPR_ID_2036.aux
 The style file: ieee.bst
 Database file #1: fxs-cvpr.bib
-I was expecting a `,' or a `}'---line 2399 of file fxs-cvpr.bib
+I was expecting a `,' or a `}'---line 2400 of file fxs-cvpr.bib
  : 
  : @inproceedings{Antonini2004,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--empty journal in hamidss
 Warning--empty year in hamidss
 Warning--empty journal in entrophy
 Warning--empty year in entrophy
@@ -20,43 +19,43 @@ Warning--there's a number but no volume in Amodelofsaliencybasedvisualattentionf
 Warning--empty year in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
 You've used 36 entries,
             2120 wiz_defined-function locations,
-            726 strings with 11260 characters,
-and the built_in function-call counts, 13129 in all, are:
+            727 strings with 11252 characters,
+and the built_in function-call counts, 13104 in all, are:
 = -- 1272
-> -- 748
+> -- 743
 < -- 4
-+ -- 295
-- -- 258
-* -- 1032
-:= -- 2230
-add.period$ -- 111
++ -- 293
+- -- 256
+* -- 1027
+:= -- 2226
+add.period$ -- 112
 call.type$ -- 36
-change.case$ -- 237
+change.case$ -- 236
 chr.to.int$ -- 0
-cite$ -- 46
+cite$ -- 45
 duplicate$ -- 438
 empty$ -- 918
-format.name$ -- 258
-if$ -- 2648
+format.name$ -- 256
+if$ -- 2645
 int.to.chr$ -- 0
 int.to.str$ -- 36
 missing$ -- 36
-newline$ -- 181
+newline$ -- 182
 num.names$ -- 72
-pop$ -- 225
+pop$ -- 222
 preamble$ -- 1
-purify$ -- 201
+purify$ -- 200
 quote$ -- 0
 skip$ -- 303
 stack$ -- 0
 substring$ -- 771
-swap$ -- 73
+swap$ -- 74
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 144
-warning$ -- 10
+warning$ -- 9
 while$ -- 120
 width$ -- 38
-write$ -- 383
+write$ -- 385
 (There was 1 error message)
