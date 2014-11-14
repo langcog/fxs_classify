@@ -3,8 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: CVPR_ID_2036.aux
 The style file: ieee.bst
 Database file #1: fxs-cvpr.bib
-Warning--empty journal in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
-Warning--empty year in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
+I was expecting a `,' or a `}'---line 2399 of file fxs-cvpr.bib
+ : 
+ : @inproceedings{Antonini2004,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--empty journal in hamidss
 Warning--empty year in hamidss
 Warning--empty journal in entrophy
@@ -12,22 +15,25 @@ Warning--empty year in entrophy
 Warning--empty journal in Bouvrie:2006vb
 Warning--empty journal in FromEgotoNosVisionDetectingSocialRelationshipsinFirstPersonViewsAlletto:wi
 Warning--empty year in FromEgotoNosVisionDetectingSocialRelationshipsinFirstPersonViewsAlletto:wi
+Warning--empty journal in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
+Warning--there's a number but no volume in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
+Warning--empty year in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
 You've used 36 entries,
             2120 wiz_defined-function locations,
-            727 strings with 11424 characters,
-and the built_in function-call counts, 13125 in all, are:
+            726 strings with 11260 characters,
+and the built_in function-call counts, 13129 in all, are:
 = -- 1272
 > -- 748
 < -- 4
-+ -- 294
++ -- 295
 - -- 258
-* -- 1031
+* -- 1032
 := -- 2230
 add.period$ -- 111
 call.type$ -- 36
 change.case$ -- 237
 chr.to.int$ -- 0
-cite$ -- 45
+cite$ -- 46
 duplicate$ -- 438
 empty$ -- 918
 format.name$ -- 258
@@ -37,20 +43,20 @@ int.to.str$ -- 36
 missing$ -- 36
 newline$ -- 181
 num.names$ -- 72
-pop$ -- 224
+pop$ -- 225
 preamble$ -- 1
 purify$ -- 201
 quote$ -- 0
-skip$ -- 305
+skip$ -- 303
 stack$ -- 0
-substring$ -- 770
+substring$ -- 771
 swap$ -- 73
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 144
-warning$ -- 9
+warning$ -- 10
 while$ -- 120
 width$ -- 38
 write$ -- 383
-(There were 9 warnings)
+(There was 1 error message)

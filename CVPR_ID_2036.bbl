@@ -1,16 +1,8 @@
 \begin{thebibliography}{10}\itemsep=-1pt
 
-\bibitem{AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq}
-L.~A~model of saliency-based visual attention for rapid scene~analysis Itti,
-  C.~Koch, E.~P.~A. Niebur, and M.~I. I.~T. on.
-\newblock {A model of saliency-based visual attention for rapid scene
-  analysis}.
-\newblock 20(11).
-
 \bibitem{hamidss}
-O.~Applying Convolutional Neural Networks concepts to hybrid NN-HMM model for
-  speech~recognition Abdel-Hamid, A.~Mohamed, H.~Jiang, G.~A.~S. Penn, and
-  S.~P. I. . I. I.~C. on.
+O.~Abdel-Hamid, A.~Mohamed, H.~Jiang, G.~A.~S. Penn, and S.~P. I. . I. I.~C.
+  on.
 \newblock {Applying Convolutional Neural Networks concepts to hybrid NN-HMM
   model for speech recognition}.
 
@@ -149,6 +141,11 @@ Y.~Kumar, M.~L. Dewal, and R.~S. Anand.
 \newblock {Epileptic seizure detection using DWT based fuzzy approximate
   entropy and support vector machine}.
 \newblock {\em Neurocomputing}, 133, June 2014.
+
+\bibitem{AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq}
+L.~L~Itti, C.~Koch, E.~P.~A. Niebur, and M.~I. I.~T. on.
+\newblock A model of saliency-based visual attention for rapid scene analysis.
+\newblock (11).
 
 \bibitem{lecun}
 B.~B. Le~Cun, J.~S. Denker, and D.~Henderson.
