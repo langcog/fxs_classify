@@ -1,0 +1,64 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ICCV.aux
+The style file: ieee.bst
+Database file #1: fxs-cvpr.bib
+I was expecting a `,' or a `}'---line 447 of file fxs-cvpr.bib
+ :  
+ :  Title = {{Social interactions: A first-person perspective}},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 2399 of file fxs-cvpr.bib
+ : 
+ : @inproceedings{Antonini2004,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty year in hamidss
+Warning--empty year in entrophy
+Warning--empty journal in Bouvrie:2006vb
+Warning--empty journal in FromEgotoNosVisionDetectingSocialRelationshipsinFirstPersonViewsAlletto:wi
+Warning--empty year in FromEgotoNosVisionDetectingSocialRelationshipsinFirstPersonViewsAlletto:wi
+Warning--there's a number but no volume in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
+Warning--empty year in AmodelofsaliencybasedvisualattentionforrapidsceneanalysisItti:tq
+You've used 36 entries,
+            2120 wiz_defined-function locations,
+            730 strings with 11435 characters,
+and the built_in function-call counts, 13075 in all, are:
+= -- 1272
+> -- 738
+< -- 4
++ -- 291
+- -- 254
+* -- 1023
+:= -- 2222
+add.period$ -- 112
+call.type$ -- 36
+change.case$ -- 235
+chr.to.int$ -- 0
+cite$ -- 43
+duplicate$ -- 438
+empty$ -- 918
+format.name$ -- 254
+if$ -- 2642
+int.to.chr$ -- 0
+int.to.str$ -- 36
+missing$ -- 36
+newline$ -- 182
+num.names$ -- 72
+pop$ -- 217
+preamble$ -- 1
+purify$ -- 199
+quote$ -- 0
+skip$ -- 303
+stack$ -- 0
+substring$ -- 771
+swap$ -- 76
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 144
+warning$ -- 7
+while$ -- 120
+width$ -- 38
+write$ -- 387
+(There were 2 error messages)
