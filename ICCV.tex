@@ -39,8 +39,6 @@
 \begin{document}
 
 %%%%%%%%% TITLE
-
-%%%%%%%%% TITLE
 \title{Vision-based classification of developmental disorders using eye-movements}
 
 \author{{\bf Guido Pusiol}
@@ -70,7 +68,7 @@ Stanford University}
 \noindent This paper proposes a system for classifying developmental disorders via measurements of individuals' eye-movements during naturalistic social interaction.
 Using a new dataset of eye-tracking during interviews with patients, we build visual features that can distinguish between Fragile-X syndrome (a genetic disorder with Autism-like symptoms) and other idiopathic developmental disabilities. 
 We design a one-dimensional convolutional neural network with state-vector inputs that outperforms a number of baseline systems, achieving 90\% precision on a subset of the data.
-Fragile-X is an important case study for autism diagnosis because of the existence of gold-standard genetic diagnoses. By highlighting the existence of detectable visual patterns of social attention, our results suggest that these methods can be generalized to autism spectrum disorders more broadly and that they have the potential to assist medical practitioners in the diagnostic process. 
+Fragile-X is an important case study for autism diagnosis because of the existence of gold-standard genetic diagnoses. By highlighting the existence of detectable visual patterns of social attention, our results suggest that automatic methods can be generalized to autism spectrum disorders more broadly and that they have the potential to assist medical practitioners in the diagnostic process. 
 \end{abstract}
    
 %%%%%%%%% BODY TEXT
@@ -81,7 +79,7 @@ Autism Spectrum Disorder (ASD), is an important developmental disorder to accoun
 \begin{figure}[ht]   
 \centering
 \includegraphics[width=0.48\textwidth]{figures/Pull.png}
-\caption{We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their mental disorder. The goal of our work is to classify between disorders using this data.}
+\caption{We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their developmental disorder. The goal of our work is to classify between disorders using this data.}
 \label{fig:pull_figure}
 \end{figure} 
 
@@ -106,23 +104,23 @@ This paper is divided as follows. In section 2, we discuss prior work. In sectio
 \section{Dataset}
 
 \subsection{Participants}
-Participants were patients diagnosed with either an idiopathic developmental disorder or Fragile-X-Syndrome (FXS). There are known gender-related behavioral differences between FXS participants, so we further subdivided this group by gender into males (FXS-M) and females (FXS-F). There were no gender-related behavioral differences in the DD group, and genetic testing confirmed that DD patients did not have FXS. Patients were between 12 and 28 years old, with 51 FXS patients (32 male, 19 female) and 19 DD patients. The two groups were well-matched on chronological and developmental age, and had similar mean scores on the Vineland Adaptive Behavior Scales (VABS), a well-established measure of developmental functioning. The score was 58.47 (std = 23.47) for individuals with FXS and 57.68 (std = 16.78) for controls, indicating that the level of cognitive functioning in the two groups is almost 3 standard deviations (std) below the mean.
+Participants were patients diagnosed with either an idiopathic developmental disorder or Fragile-X-Syndrome (FXS). There are known gender-related behavioral differences between FXS participants, so we further subdivided this group by gender into males (FXS-M) and females (FXS-F). There were no gender-related behavioral differences in the DD group, and genetic testing confirmed that DD patients did not have FXS. Patients were between 12 and 28 years old, with 51 FXS patients (32 male, 19 female) and 19 DD patients. The two groups were well-matched on chronological and developmental age, and had similar mean scores on the Vineland Adaptive Behavior Scales (VABS), a well-established measure of developmental functioning. The average score was 58.5 (SD = 23.47) for individuals with FXS and 57.7 (std = 16.78) for controls, indicating that the level of cognitive functioning in both groups was 2 -- 3 SDs below the typical mean.
 
 %a well-established measure of developmental functioning. The VABS adaptive behavior composite standard score was 58.47 (SD = 23.47) for individuals with FXS and 57.68 (SD = 16.78) for controls, indicating that the level of cognitive functioning in the two groups was almost 3 standard deviations below the mean.
 
-\subsection {Environmental Set-Up}
-The participants were each interviewed for a period of $\sim$10 minutes by a health professional interviewer. The interviews were conducted in a room with minimal visual distractions to control for the participants' attention. The distance between the participants and the interviewer was $\sim$1.5m. Figure \ref{fig:environment} depicts the the environment configuration. The eye-tracker and the camera are synchronized in time. A linear transformation maps the coordinate values of the eye-tracker to the coordinate space of the camera.  
+\subsection {Methods}
+Patients were each interviewed for $\sim$10 minutes by a clinically-trained experimenter. To avoid distraction, interviews were conducted in an empty room with minimal visual clutter. The distance between the participants and the interviewer was $\sim$1.5m. Figure \ref{fig:environment} depicts the configuration of the interview. Eye-movements were recorded using a Tobii X120 remote corneal reflection eye-tracker, with time-synchronized input from the scene camera. The eye-tracker was calibrated to the remote camera via the patient looking at a known set of locations prior to the interview.  Interviewers were instructed to hold their head relatively still, so as to avoid translations outside of the field of view of the camera.
 
 \begin{figure}[ht]   
  \centering
-           \includegraphics[width=3.2in,height= 2.4in]{figures/Real.png}
- \caption{A frame from videos showing the participant's view (participant's head is visible in the bottom of the frame). Eye-movements are tracked with a remote eye-tracker and mapped into the coordinate space of this video.}
+           \includegraphics[width=2in,height= 1.5in]{figures/Real.png}
+ \caption{A frame from videos showing the participant's view (participant's head is visible in the bottom of the frame). Eye-movements were tracked with a remote eye-tracker and mapped into the coordinate space of this video.}
 \label{fig:environment}
 \end{figure}
 
 %%% SECTION: SYSTEM ARCHITECTURE %%%%
 \section{System Architecture}
-The assistive system takes as input multi-sensorial eye-tracking and video data and outputs a prediction on the mental disorder of the participant. Figure \ref{fig:system_architecture} depicts the architecture of the system. It is composed of the following three parts, elaborated further in sections \ref{sec:feature_extraction}, \ref{sec:classification}, \ref{sec:participant_classification}:
+The assistive system takes as input multi-sensorial eye-tracking and video data and outputs a prediction on the developmental disorder of the participant. Figure \ref{fig:system_architecture} depicts the architecture of the system. It is composed of the following three parts, elaborated further in sections \ref{sec:feature_extraction}, \ref{sec:classification}, \ref{sec:participant_classification}:
 
 \textbf{Feature Extraction}. We build our features by mapping the eye-tracking information onto facial regions of the interviewer. 
 
@@ -153,7 +151,7 @@ The assistive system takes as input multi-sensorial eye-tracking and video data 
 \begin{figure*}[ht]   
 \centering
            \includegraphics[width=\textwidth]{figures/system.png}           
- \caption{System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Face marks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these marks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of  unseen participants (10) are used to predict their mental disorder (11).}
+ \caption{System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Facial landmarks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these landmarks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of  unseen participants (10) are used to predict their developmental disorder (11).}
 \label{fig:system_architecture}
 \end{figure*}
 
@@ -162,26 +160,26 @@ The assistive system takes as input multi-sensorial eye-tracking and video data 
 \label{sec:feature_extraction}
 A goal of our work is to build proper descriptive features that simultaneously provide insight into these disorders and allow for accurate classification between them. These features are the building blocks of our system, and the key challenge is engineering them to properly distill the most meaningful parts out of the raw eye-tracker and video footage.  
 
-\subsection{Face-mark Extraction}
-For each video frame we compute a set of face marks on the face of the interviewer using a deformable-parts-model based approach \cite{dpmface}. We reduce the bias of the interviewer by filtering out the frames where the interviewer is not facing the participant. This represents $<$1\% of all frames.
+\subsection{Face Landmark Extraction}
+For each video frame we compute a set of landmarks on the face of the interviewer using a deformable-parts-model based approach \cite{dpmface}. We reduce the bias of the interviewer by filtering out the frames where the interviewer is not facing the participant. This represents $<$1\% of all frames.
 
-We have computed 58,587 frames for the 19 developmental disorder participants, 56,109 frames for the 19 FXS-female participants, 94,214 frames for the 51 FXS-Male participants. Our frame-rate is 5 frames per second. At each frame we compute 69 face-marks which total  14,414,790 marks over all frames. This was achieved using 500 cores over 96 hours. Face-mark quality was evaluated on a sample of 1000 randomly selected frames, out of which only a single frame was incorrectly annotated. Figure \ref{fig:environment} shows an example of face-marks extracted and displayed on the face of an experimenter during an interview. Figure \ref{fig:PERSON}(a)(b) shows examples of the spacial translation of the face-mark on two interviews. We can see that the interviewer's face is spatially stable during the interview and that these results are consistent across the interviews. 
+We include 58,587 frames for the 19 developmental disorder participants, 56,109 frames for the 19 FXS-female participants, and 94,214 frames for the 51 FXS-Male participants, at a frame rate of 5 fps (down-sampled for efficiency). On each frame we computed 69 landmarks, for a a total of 14,414,790 over all frames, using 500 cores over 96 hours. Landmark quality was evaluated on a sample of 1000 randomly selected frames, out of which only a single frame was incorrectly annotated. Figure \ref{fig:environment} shows an example of facial landmarks, and Figure \ref{fig:PERSON}(a)(b) shows the spatial range of the landmarks across two different interviewers. The interviewer's face is spatially stable during the interview and that these results are consistent across the interviews. 
  
 \subsection{Feature Construction}
 \label{ssec:feature_construction}
-The eye-tracking system is calibrated to the camera coordinate system. We map the eye-tracking coordinates and the face marks with a linear transformation. The binding between the eye-tracking and the face-mark happens when the eye-tracking is within a 20 px. radius to the closest face-mark - Figure \ref{fig:PERSON}(c)(d). This value is manually defined to cover the interviewer's entire face.
-
-
+The eye-tracking system is calibrated to the camera coordinate system. We mapped the eye-tracking coordinates to the facial landmark coordinates with a linear transformation. The participant's point of gaze was considered to be on a particular facial landmark when the reported point of gaze was within a 20 px. radius (Figure \ref{fig:PERSON}(c)(d)); this value reflects the approximate error in the eye-tracker's estimates of patient point-of-gaze ($\sim$1 degree of visual angle). 
+% This value is manually defined to cover the interviewer's entire face.
 
 \begin{figure}[h]
     \begin{center}
         \includegraphics[width=0.5\linewidth]{figures/face2.png}
     \end{center}
-    \caption{Clustering of the 69 key-marks of the interviewer's face into 5 semantic facial regions. The colors represent the clustering of these marks into 5 facial regions. A 6th region, not shown, is reserved for when the participants look away from the face. These clusters represents our features.}
+    \caption{Clustering of the 69 key landmarks of the interviewer's face into 5 semantic facial regions. The colors represent the clustering of these landmarks into 5 facial regions. A 6th region, not shown, is reserved for when the participants look away from the face. These clusters represents our features.}
     \label{fig:feats}
 \end{figure}
-We cluster the 69 facemarks into 6 regions: \textit{not looking at the face, nose, left-eye, right-eye, mouth, jaw}. Figure \ref{fig:feats} depicts this. 
-We represent these regions as state vectors, as shown in Figure  \ref{fig:statevectors}, to emphasize the independence of facial regions.
+
+We clustered the 69 landmarks into 6 regions: \textit{not looking at the face, nose, left eye, right eye, mouth, jaw} (Figure \ref{fig:feats}). 
+To capture the independent value of these regions (which play substantially different social roles for individuals on the autism spectrum \cite{klin2002}), we represent these regions as state vectors (Figure \ref{fig:statevectors}).
 
 %To convert this time-series into temporal features for learning algorithms we select a time-window of length \textit{n} and a time-step \textit{s} to form a feature matrix as follows: 
 %\begin{enumerate}
@@ -207,17 +205,21 @@ where $\alpha$ indexes the participants and $T_\alpha$ represents the length of 
 S_c=\{p^1, p^2,...p^N \}
 %=\{f_1^1, f_2^1,....f_{T_1}^1, f_1^2, f_2^2,....f_{T_2}^2,... f_1^N, f_2^N,....f_{T_N}^N\}
 \end{equation}
- where $c$ indexes \{DD, FXS-female, FXS-male\}.
-\subsection{Descriptive Analysis}
+ where $c$ indexes the diagnostic labels \{DD, FXS-female, FXS-male\}.
+
+\subsection{Descriptive Analyses}
 
 We next briefly present a number of descriptive analyses of the dataset that explore the complexity of this rich data and justify the importance of using temporal information in classification.
 
 \subsubsection{Fourier Analysis of Features}
-We consider the spectra of the time-series for each group (DD, FXS-male, FXS-female) by concatenating the integer-representation time-series of each patient $\bar{p}^\alpha=[\bar{f}_1^\alpha, \bar{f}_2^\alpha,....\bar{f}_{T_\alpha}^\alpha]$ of the group into one time-series $\bar{S}_c=\{\bar{p}^1, \bar{p}^2,...\bar{p}^N \}$ and taking the Fourier transform. What we find is that each group exhibits strong near-zero-frequency components with weak and noisy higher order components. We further find that the spectra of the signal after eliminating the non-face state vectors has the same pattern. This implies that there exist no characteristic oscillatory movements in the data and that participants tend either to fixate to a single region of the face or scan across multiple regions. 
+
+We first consider the spectra of the time-series for each group (DD, FXS-male, FXS-female) by concatenating the integer-representation time-series of each patient $\bar{p}^\alpha=[\bar{f}_1^\alpha, \bar{f}_2^\alpha,....\bar{f}_{T_\alpha}^\alpha]$ of the group into one time-series $\bar{S}_c=\{\bar{p}^1, \bar{p}^2,...\bar{p}^N \}$ and taking the Fourier transform. Each group exhibits strong near-zero-frequency components with weak and noisy higher order components. Further, the spectra of the signal---after eliminating the non-face state vectors---has the same pattern. This finding implies that there exist no characteristic oscillatory movements in the data: Participants tend either to fixate to single region of the face or scan across multiple regions. 
 
 \subsubsection{Feature Granularity}
 
-It is clinically relevant to analyze the distribution over time of the attention of the participants to different regions of the face.  As seen in Figure \ref{fig:histo}, participants spend the majority of the interview looking away from the interviewer, and only a fraction of the time looking at the interviewer's face. Considering the feature distribution over the face, Figure \ref{fig:histo}(d)-(f), we see that DD and FXS-F are quite similar, whereas FXS-M is distinct. FXS-M focuses primarily on mouth (4) and nose (1) areas. This justifies the use of a finer granularity of face regions to construct features as opposed to coarser features based on whether or not individuals are looking at the face.
+Patients---especially those with FXS---spent the majority of the interview looking away from the interviewer, and only a fraction of the time on the interviewer's face (Figure \ref{fig:histo}). Yet clinicians often express the intuition that the \emph{distribution} of fixations, not just the sheer lack of face fixations---seem related to the general autism phenotype \cite{klin2002,jones2013}. This intuition is supported by the distributions in Figure \ref{fig:histo}(d)-(f):DD and FXS-F are quite similar, whereas FXS-M is distinct. FXS-M focuses primarily on mouth (4) and nose (1) areas. 
+
+% This justifies the use of a finer granularity of face regions to construct features as opposed to coarser features based on whether or not individuals are looking at the face.
 \begin{figure}%[t]
           \subfigure[ DD]{
              \includegraphics[width=1in,height= 0.7in]{figures/semdd.png}
@@ -248,7 +250,8 @@ It is clinically relevant to analyze the distribution over time of the attention
 
 
 \subsubsection{Attentional transitions}
-It is also clinically relevant to analyze the transitions between facial regions in time. Figure \ref{fig:transitions} shows these transitions in a color map. We find a marked difference between the different disorders. Individuals with DD exhibit greater counts of transitions, whereas those with FXS exhibit significantly less. The transitions between facial regions better identify the three groups than the transitions from non-face to face regions. FXS-M participants tend to swap their gaze quite frequently between mouth and nose, whereas the other two do not. DD participants exhibit much movement between facial regions, without any clear preference. FXS-F patterns resemble DD, though they are much less pronounced.
+
+In addition to the distribution of fixations, the \emph{sequence} of fixations is also remarked upon by clinicians. In particular, FXS patients often glance to the face quickly and then look away, or scan between non-eye regions. Figure \ref{fig:transitions} shows region-to-region transitions in a heatmap. There is a marked difference between the different disorders: Individuals with DD make more transitions, while those with FXS exhibit significantly less---congruent with the clinical intuiton. The transitions between facial regions better identify the three groups than the transitions from non-face to face regions. FXS-M participants tend to swap their gaze quite frequently between mouth and nose, while the other two do not. DD participants exhibit much more movement between facial regions, without any clear preference. FXS-F patterns resemble DD, though the pattern is less pronounced.
 
 \begin{figure}[b]
           \subfigure[DD]{
@@ -266,16 +269,16 @@ It is also clinically relevant to analyze the transitions between facial regions
 \label{fig:transitions}
 \end{figure}
 
-There is significant variance amongst individuals in the same group, making it challenging to classify between them. For example, Figure \ref{fig:sticky} shows time-series data of when individuals are glancing at the face of their interviewer or away from it. Note the varying sparsity of FXS males - some individuals glance at the face very frequently, whereas others may spend minutes without looking at it. FXS females exhibit similar sparsity amongst some individuals and much more consistent face-glancing amongst others. DD participants, on the other hand, tend to have a much higher frequency of glancing at the face, though a few participants also spend noticeable amounts of time looking away from it. 
+There is significant variance among individuals in the same group, making it challenging to classify between them. For example, Figure \ref{fig:sticky} shows time-series data of when individuals are glancing at the face of their interviewer or away from it. Note the varying sparsity of FXS males---some individuals glance at the face very frequently, whereas others may spend minutes without looking at it. FXS females exhibit similar sparsity amongst some individuals and much more consistent face-glancing amongst others. DD participants, on the other hand, tend to have a much higher frequency of glancing at the face, though a few participants also spend noticeable amounts of time looking away from it. 
 
 \begin{figure}
        
        \subfigure[DD - Group]{
-             \includegraphics[width=0.22\textwidth]{figures/FXSF-face.png}
+             \includegraphics[width=0.22\textwidth]{figures/DD-face.png}
             }
             \hfill
           \subfigure[FXS Female]{
-             \includegraphics[width=0.22\textwidth]{figures/DD-face.png}
+             \includegraphics[width=0.22\textwidth]{figures/FXSF-face.png}
             }
             \hfill
             \centering
@@ -289,9 +292,10 @@ There is significant variance amongst individuals in the same group, making it c
 
 
 \subsubsection{Approximate Entropy} 
- Approximate Entropy ($ApEn$) analysis provided a measure of how predictable a sequence is. The $ApEN$ of a signal is a value in $[0,1]$, where a higher entropy value indicates unpredictability of fluctuations in the signal, and a low value indicates a high degree of regularity. We employ ($ApEn$) analysis \cite{Restrepo:2014gs,entrophy} to further emphasize the similarity between DD and FXS-F signals and the difference between FXS-M and the other two. $ApEn$ measures the logarithmic likelihood that if two vectors $(q^{w}_{i}, q^{w}_{j})$ representing feature sequences of length $w$ are within a distance $R$, called the tolerance, in a w-dimensional space, then they remain within R in a $(w + 1)$-dimensional space when their length is extended by an extra feature. Greater (lesser) likelihood of remaining close produces smaller (larger) $ApEn$ values. To estimate $ApEn(R, m, N)$ for a length N feature sequence $Q={\bar{f}_1, \bar{f}_2, . . . , \bar{f}_{N}}$, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$, we define the $w$-dimensional embedded vectors $q^{m}_{i}=[\bar{f}_{i}, \bar{f}_{i+\tau}, \bar{f}_{i+2\tau}, . . . , \bar{f}_{i+(m-1)\tau}]$, with $1 \leq i \leq N-(m-1)\tau$. 
 
-We have measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each group $S_c$ we select 10 random participants (about 30,000 features $\bar{f}_i$). %$Q$ contains the vectors $u$ of features of $\sim$10 participants per group. The participants are chosen randomly. 
+We next use Approximate Entropy ($ApEn$) analysis to provide a measure of how predictable a sequence is. The $ApEN$ of a signal is a value in $[0,1]$, where a higher entropy value indicates unpredictability of fluctuations in the signal, and a low value indicates a high degree of regularity. We employ ($ApEn$) analysis \cite{Restrepo:2014gs,entrophy} to further emphasize the similarity between DD and FXS-F signals and the difference between FXS-M and the other two. $ApEn$ measures the logarithmic likelihood that if two vectors $(q^{w}_{i}, q^{w}_{j})$ representing feature sequences of length $w$ are within a distance $R$, called the tolerance, in a w-dimensional space, then they remain within R in a $(w + 1)$-dimensional space when their length is extended by an extra feature. Greater (lesser) likelihood of remaining close produces smaller (larger) $ApEn$ values. To estimate $ApEn(R, m, N)$ for a length N feature sequence $Q={\bar{f}_1, \bar{f}_2, . . . , \bar{f}_{N}}$, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$, we define the $w$-dimensional embedded vectors $q^{m}_{i}=[\bar{f}_{i}, \bar{f}_{i+\tau}, \bar{f}_{i+2\tau}, . . . , \bar{f}_{i+(m-1)\tau}]$, with $1 \leq i \leq N-(m-1)\tau$. 
+
+We measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each group $S_c$, we selected 10 random participants (about 30,000 features $\bar{f}_i$). %$Q$ contains the vectors $u$ of features of $\sim$10 participants per group. The participants are chosen randomly. 
 We parametrize $\tau=1$ to capture the entropy of the shortest period of time allowed by the data resolution (0.2 seconds). The tolerance parameter $r=0.1k$, for $k=1...30$ defines the tolerance $R = \text{std}(Q)r$. Figure \ref{fig:entropy}(a) depicts the $ApEn$ for $m=3$ while varying r. The FXS-M data is more stable than DD and FXS-F data, which share a similar entropy. 
 \begin{figure}
         \subfigure[Tolerance Parameter]{
@@ -305,7 +309,7 @@ We parametrize $\tau=1$ to capture the entropy of the shortest period of time al
          \label{fig:entropy}
 \end{figure}
 
-Furthermore, we vary $w$ in order to understand the volatility of the signals from frame to frame. Figure \ref{fig:entropy}(b) depicts such an analysis. Here the parameter $R$ is fixed to $R=\text{std}(Q)$. We see that FXS-M participants, on average, show the most stable decay for small $m$ while FXS-F and DD share a similar decay rate. Simultaneously we see in Figure \ref{fig:individual_entropy} that there is great variance amongst individuals of each population. This is taken using about 6.6 minutes of data (2000 features) from each participant. We compute the $ApEn$ by fixing $\tau=1$, $r=1$ and varying $w$. 
+We vary $w$ in order to understand the volatility of the signals from frame to frame. Figure \ref{fig:entropy}(b) depicts this analysis. Here the parameter $R$ is fixed to $R=\text{std}(Q)$. We see that FXS-M participants, on average, show the most stable decay for small $m$ while FXS-F and DD share a similar decay rate. Simultaneously we see in Figure \ref{fig:individual_entropy} that there is great variance amongst individuals of each population. This is taken using about 6.6 minutes of data (2000 features) from each participant. We compute the $ApEn$ by fixing $\tau=1$, $r=1$ and varying $w$. 
 \begin{figure}[b]
         \centering
         \subfigure[DD]{
@@ -327,7 +331,7 @@ Furthermore, we vary $w$ in order to understand the volatility of the signals fr
 \section{Training of Classifiers}
 \label{sec:classification}
 
-The goal of this work is to create an end-to-end system for classification of mental disorders from raw visual information. So far we built features that capture social attentional information and analyzed their temporal structure. We need to construct methods capable of utilizing these features to predict the mental disorder of a participant. Given the novelty of this dataset, the key challenge is to find methods that can tackle the intrinsic structure of the data and discern between participants. We propose a one-dimensional convolutional neural network designed to work with state-vectors. We train other models for comparison against this one.
+The goal of this work is to create an end-to-end system for classification of developmental disorders from raw visual information. So far we have introduced features that capture social attentional information and analyzed their temporal structure. We next need to construct methods capable of utilizing these features to predict the specific disorder of the patient. Given the novelty of this dataset, the key challenge is to find methods that can tackle the intrinsic structure of the data and discern between participants. We propose a one-dimensional convolutional neural network designed to work with state-vectors. We train other models for comparison against this one.
 
 We form an input data matrix and label vector by choosing a window length $w$ and a step size $s$ and converting the feature sequence of our entire dataset, $Q=[f_1^1, f_2^1,...,f_{T_N-1}^N,f_{T_N}^N]$ into the $m \times w$ matrix
 \begin{equation}
@@ -427,11 +431,11 @@ For comparison with traditional temporal classifiers, we train a two-hidden-stat
         \centering
   
         \subfigure[DD vs FXS Female]{
-             \includegraphics[width=0.25\textwidth]{figures/Temporal-DDvsFXSfemale-SVM}
+             \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSfemale-SVM}
         }
             \hfill
        \subfigure[DD vs FXS Male]{
-             \includegraphics[width=0.25\textwidth]{figures/Temporal-DDvsFXSmale-SVM.jpg}
+             \includegraphics[width=0.35\textwidth]{figures/Temporal-DDvsFXSmale-SVM.jpg}
        }        \caption{Analysis of SVM classifier training and testing error as a function of time window  (in seconds) for pair-wise classifiers. One second of time corresponds to 5 features.}
         \label{fig:window_lengths}
 \end{figure}
@@ -461,9 +465,9 @@ Where $C_1, C_2 \in \{\text{DD}, \text{FXS-F}, \text{FXS-M}\}$, $\text{Class}(s)
 
 By varying the classification methods described in Section \ref{sec:classification} we perform a quantitative evaluation of the overall system.
 
-We assume the gender of the patient is known, and select the clinically-relevant pair-wise classification experiments DD vs FXS-F and DD vs FXS-M. For the experiments we use 32 FXS-male, 19 FXS-female and 19 DD participants. To maintain equal data distribution in training and testing we build $S_{train}$ and and $S_{test}$ randomly shuffling participants of each class ensuring a 50\%/50\% distribution of the two participant classes over the sets. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We classify the mental disorder of the participants, given their individual time-series feature data $p$, to evaluate the precision of our system. For N total participants, we create an 80\%/20\% training/testing dataset $S_{train} = \{ p^1, p^2, .... p^{0.8 N} \}$ and $S_{test} = \{ p^{0.8N + 1}, .... p^N \}$  such that no patient's data is shared between the two datasets. We perform 10-fold cross validation where each fold is defined by a new random 80/20 split of the participants. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We compare our custom S-CNN to SVM, NB, and HMM models using feature windows corresponding to 3, 10, and 50 seconds of video footage. These window lengths correspond to the observations presented in section \ref{sec:classification}.
+We assume the gender of the patient is known, and select the clinically-relevant pair-wise classification experiments DD vs FXS-F and DD vs FXS-M. For the experiments we use 32 FXS-male, 19 FXS-female and 19 DD participants. To maintain equal data distribution in training and testing we build $S_{train}$ and and $S_{test}$ randomly shuffling participants of each class ensuring a 50\%/50\% distribution of the two participant classes over the sets. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We classify the developmental disorder of the participants, given their individual time-series feature data $p$, to evaluate the precision of our system. For N total participants, we create an 80\%/20\% training/testing dataset $S_{train} = \{ p^1, p^2, .... p^{0.8 N} \}$ and $S_{test} = \{ p^{0.8N + 1}, .... p^N \}$  such that no patient's data is shared between the two datasets. We perform 10-fold cross validation where each fold is defined by a new random 80/20 split of the participants. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We compare our custom S-CNN to SVM, NB, and HMM models using feature windows corresponding to 3, 10, and 50 seconds of video footage. These window lengths correspond to the observations presented in section \ref{sec:classification}.
 
-The system is evaluated on the average precision with which it discerns mental disorders. The results are reported in Table  \ref{table:profiler}. We find that the highest average precision is attained using the S-CNN model with a 10 second time window. It classifies DD versus FXS-F with 0.68 precision and DD versus FXS-M with 0.90 precision, a remarkably high pair of accuracies given the challenges of working with such a noisy dataset. 
+The system is evaluated on the average precision with which it discerns developmental disorders. The results are reported in Table  \ref{table:profiler}. We find that the highest average precision is attained using the S-CNN model with a 10 second time window. It classifies DD versus FXS-F with 0.68 precision and DD versus FXS-M with 0.90 precision, a remarkably high pair of accuracies given the challenges of working with such a noisy dataset. 
 
 \begin{table}
 \begin{tabular}{c|c|c|c}
@@ -513,13 +517,12 @@ Data of experimenters interviewing patients with developmental disorders was col
 
 This work serves as a proof of concept of the power of computer vision systems in assistive medical diagnosis. Trained professionals take hours of effort and batteries of tests to accurately diagnose these disorders or conduct genetic screening, whereas we are able to provide, within a few seconds, a high-probability prediction of the individual being afflicted with one disorder or another. This system, along with similar ones, could be leveraged for remarkably faster screening of individuals. Future work will consider extending this capability to a greater range of disorders and visual symptoms.
 
+\newpage
 
 {\small
 \bibliographystyle{ieee}
 \bibliography{fxs-cvpr}
 }
-
-
 
 
 
