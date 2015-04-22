@@ -65,10 +65,17 @@ Stanford University}
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-\noindent This paper proposes a system for classifying developmental disorders via measurements of individuals' eye-movements during naturalistic social interaction.
-Using a new dataset of eye-tracking during interviews with patients, we build visual features that can distinguish between Fragile-X syndrome (a genetic disorder with Autism-like symptoms) and other idiopathic developmental disabilities. 
-We design a one-dimensional convolutional neural network with state-vector inputs that outperforms a number of baseline systems, achieving 90\% precision on a subset of the data.
-Fragile-X is an important case study for autism diagnosis because of the existence of gold-standard genetic diagnoses. By highlighting the existence of detectable visual patterns of social attention, our results suggest that automatic methods can be generalized to autism spectrum disorders more broadly and that they have the potential to assist medical practitioners in the diagnostic process. 
+This paper proposes a system for fine-grained classification of developmental disorders via measurements of individuals' eye-movements using multi-modality visual data. While the system is engineered to solve a psychiatric problem, we believe the underlying principles and general methodology will be of interest not only to psychiatrists but to researchers and engineers in computer vision. 
+
+The main idea is to build multi-modal features from two pixel-based sources that capture information not contained in either modality. Using an eye-tracker and a camera in a setup involving two individuals speaking, we build temporal attention features that describe the semantic location that one person is focused on relative to the other person's face. 
+
+In our clinical setup, the temporal attention features refer to a patient's gaze on finely discretized regions of an interviewing clinician's face, and are used to classify their particular developmental disorder. We show that our best method for classification is a state-vector based convolutional neural network (CNN) that achieves 90\% accuracy.  
+
+%Using a new dataset of eye-tracking during interviews with patients, we build visual features that can distinguish between Fragile-X syndrome (a genetic disorder with Autism-like symptoms) and other idiopathic developmental disabilities. 
+
+%We design a one-dimensional convolutional neural network with state-vector inputs that outperforms a number of baseline systems, achieving 90\% precision on a subset of the data.
+
+%Fragile-X is an important case study for autism diagnosis because of the existence of gold-standard genetic diagnoses. By highlighting the existence of detectable visual patterns of social attention, our results suggest that automatic methods can be generalized to autism spectrum disorders more broadly and that they have the potential to assist medical practitioners in the diagnostic process. 
 \end{abstract}
    
 %%%%%%%%% BODY TEXT
@@ -79,20 +86,33 @@ Autism Spectrum Disorder (ASD), is an important developmental disorder to accoun
 \begin{figure}[ht]   
 \centering
 \includegraphics[width=0.46\textwidth]{figures/pull.png}
-\caption{We perform gaze-tracking and facial-analysis to study participants (1) with mental impairments engaging in social interactions with an interviewer (2), that behave differently depending on their developmental disorder. The goal of our work is to classify between disorders using this data.}
+\caption{We study social interactions between a participant (1) with a mental impairment and an interviewer (2), using multi-modal data from a remote eye-tracker and camera (3-4). The goal of the system is to achieve fine-grained classification between developmental disorders using this data.}
 \label{fig:pull_figure}
 \end{figure} 
 
-In this work, we aim to create an automated system to assist physicians in the diagnosis of ASD (see Figure \ref{fig:pull_figure}). Specifically, we focus on Fragile-X-Syndrome (FXS). FXS is the most common known genetic cause of autism \cite{Hagerman:2008wg}, affecting approximately 1 in 3,000 individuals in the United States (approximately 100,000 people nationally). Individuals with FXS often show prominent eye gaze deficits during social encounters in which they actively seek to avoid social interaction \cite{Cohen:1988vx,Cohen:1989cm}. These social-attentional behavioral phenotypes are considered to be salient cues which drive investigations to better asses mental impairment \cite{Kennedy:2001dg}. 
-   
-Pioneering work by \cite{Rehg} shows the potential of using eye-tracking information to measure relevant behavior in children with ASD. However, it did not address the issue of distinguishing between ASD/FXS and other disorders in an automated way. Our work extends this to develop a vision-driven means for FXS classification via eye-tracking. Our data is video of an experimenter interviewing patients, overlaid with the patient's point of gaze (as measure by a remote eye-tracker). These participants have either FXS or some other developmental disorder (DD). We build descriptive features from this multi-sensorial data that capture social engagement between participant and experimenter. We then use these features to train classifiers to discern between different participants' disorder. One challenge is demonstrating that our features can help us better understand ASD. Another challenge is building an automated system capable of disambiguating between participants with different developmental conditions given the variability between individuals with the same disorder. 
+In this work, we build multi-modal temporal features that describe the location of an interviewer's face that a patient is paying attention to, and employ state-vector based CNNs to create an automated system to assist physicians in the diagnosis of ASD (see Figure \ref{fig:pull_figure}). 
 
-Our contribution is a system capable of performing automatic assessment of the participant's developmental condition using a novel feature representation and a hand-crafted classifier that works well with our data. We perform quantitative analysis of our data in order to provide insight into the differences and variance in the behavioral patterns of these developmental conditions. Our results show that this system works with an accuracy well above chance, in some cases attaining 90\% precision. In addition, data analysis reveals that patterns in eye gaze considered at the fine granularity of facial regions (i.e. nose, mouth, etc.) are strong cues in describing a participant's diagnostic (Figure \ref{fig:pull_figure}). 
+Specifically, we focus on Fragile-X-Syndrome (FXS). FXS is the most common known genetic cause of autism \cite{Hagerman:2008wg}, affecting approximately 1 in 3,000 individuals in the United States (approximately 100,000 people nationally). Individuals with FXS often show prominent eye gaze deficits during social encounters in which they actively seek to avoid social interaction \cite{Cohen:1988vx,Cohen:1989cm}. These social-attentional behavioral phenotypes are considered to be salient cues which drive investigations to better asses mental impairment \cite{Kennedy:2001dg}. We build descriptive features from this data that capture social engagement between participant and experimenter. We then use these features to train classifiers to discern between different participants' disorder. 
 
-This paper is divided as follows. In section 2, we discuss prior work. In section 3, we describe the data: its collection and the sensors used. In section 4, we present an overview of the proposed system. In section 5, we describe the built features and analyze them. In section 6, we apply classification techniques and propose a new model. In section 7, we describe our approach for classifying the mental condition of an unknown participant. In section 8 we discuss the results and future work.
+%One challenge is demonstrating that our features can help us better understand ASD. Another challenge is building an automated system capable of disambiguating between participants with different developmental conditions given the variability between individuals with the same disorder. 
+
+In the rest of this section we motivate our contribution and approach. In section 2, we discuss prior work. In section 3, we describe the data: its collection and the sensors used. In section 4, we present an overview of the proposed system. In section 5, we describe the built features and analyze them. In section 6, we apply classification techniques and propose a new model. In section 7, we describe our approach for classifying the mental condition of an unknown participant. In section 8 we discuss the results and future work.\\
+
+
+\noindent \textbf{Our contribution and approach.} We build a system capable of performing automatic assessment of a participant's developmental condition using features derived from multi-modal data and classifiers adapted to our problem. We perform quantitative analysis of our data in order to provide insight into the differences and variance in the behavioral patterns of these developmental conditions. Our results show that this system works well above chance, in some cases attaining 90\% accuracy. In addition, data analysis reveals that patterns in eye gaze considered at the fine granularity of facial regions (i.e. nose, mouth, etc.) are strong cues in describing a participant's diagnostic (Figure \ref{fig:pull_figure}). 
+
+%Note that for both the crafting of our features and the classifier training, we rely on modifications to existing techniques. 
+Note that our contribution is not based on novel algorithms but in the observation that multi-modal data can be crafted to reveal high-level behavioral characteristics of an individual based on finely discretized actions - in our case revealing a developmental disorder based on regional attention to another's face during conversation. 
+
+We believe this will interest both computer vision researchers and engineers working on similar problems, such as emotion classification or activity understanding based on the interaction of people (i.e. understanding social roles).
+%classifying the emotion of a person based on their eye-movements, facial expressions, or any number of interactions possible with other people. 
+
+
 
 %%%%%%% PREVIOUS WORK %%%%%%%%
 \section {Previous Work}
+
+Pioneering work by \cite{Rehg} shows the potential of using eye-tracking information to measure relevant behavior in children with ASD. However, it did not address the issue of fine-grained classification between ASD/FXS and other disorders in an automated way. Our work extends this to develop a means for FXS classification via multi-modal data.
 
 \subsection{Classification of disorders} Previous efforts in the classification of developmental disorders such as epilepsy and schizophrenia have relied on using electroencephalogram (EEG) and neurophysiological signals \cite{Kumar, sabeti}. These methods are accurate, but they suffer from long recording times and the use of EEG probes positioned all over a participants scalp and face. Meanwhile, eye-tracking has long been used to study autism and characterize the disease \cite{Boraston, hashemi, dalton}, but a rigorous automated system complete with visual feature extraction and classification has yet to be proposed. Here we propose a step towards an integrated approach to solving this problem. 
 
@@ -102,14 +122,15 @@ This paper is divided as follows. In section 2, we discuss prior work. In sectio
  
  %%%%%%%%% DATASET %%%%%%%%%%
 \section{Dataset}
-
+Our data are 70 10-minute videos of an experimenter interviewing a patient, overlaid with the patient's point of gaze (as measure by a remote eye-tracker). These participants have either FXS or some other developmental disorder (DD). 
 \subsection{Participants}
 Participants were patients diagnosed with either an idiopathic developmental disorder or Fragile-X-Syndrome (FXS). There are known gender-related behavioral differences between FXS participants, so we further subdivided this group by gender into males (FXS-M) and females (FXS-F). There were no gender-related behavioral differences in the DD group, and genetic testing confirmed that DD patients did not have FXS. Patients were between 12 and 28 years old, with 51 FXS patients (32 male, 19 female) and 19 DD patients. The two groups were well-matched on chronological and developmental age, and had similar mean scores on the Vineland Adaptive Behavior Scales (VABS), a well-established measure of developmental functioning. The average score was 58.5 (SD = 23.47) for individuals with FXS and 57.7 (std = 16.78) for controls, indicating that the level of cognitive functioning in both groups was 2 -- 3 SDs below the typical mean.
 
 %a well-established measure of developmental functioning. The VABS adaptive behavior composite standard score was 58.47 (SD = 23.47) for individuals with FXS and 57.68 (SD = 16.78) for controls, indicating that the level of cognitive functioning in the two groups was almost 3 standard deviations below the mean.
 
-\subsection {Methods}
-Patients were each interviewed for $\sim$10 minutes by a clinically-trained experimenter. To avoid distraction, interviews were conducted in an empty room with minimal visual clutter. The distance between the participants and the interviewer was $\sim$1.5m. Figure \ref{fig:environment} depicts the configuration of the interview. Eye-movements were recorded using a Tobii X120 remote corneal reflection eye-tracker, with time-synchronized input from the scene camera. The eye-tracker was calibrated to the remote camera via the patient looking at a known set of locations prior to the interview.  Interviewers were instructed to hold their head relatively still, so as to avoid translations outside of the field of view of the camera.
+\subsection {Data Collection Methods}
+Patients were each interviewed for $\sim$10 minutes by a clinically-trained experimenter. In our setup the camera was placed behind the patient and facing the interviewer. 
+Figure \ref{fig:environment} depicts the configuration of the interview. Eye-movements were recorded using a Tobii X120 remote corneal reflection eye-tracker, with time-synchronized input from the scene camera. The eye-tracker was calibrated to the remote camera via the patient looking at a known set of locations prior to the interview.
 
 \begin{figure}[ht]   
  \centering
@@ -128,29 +149,32 @@ The assistive system takes as input multi-sensorial eye-tracking and video data 
 
 \textbf{Participant Classification}. We define a method to predict the condition of a new participant using these models. 
 
-\begin{figure}
+\begin{figure}[centering]
+%			\hfill
+\centering
           \subfigure[]{
              \includegraphics[width=0.6in,height=0.7in]{figures/movement1.png}
              } 
-                  \hfill   
+%                  \hfill   
             \subfigure[]{
             \includegraphics[width=0.6in,height= 0.7in]{figures/movement2.png} 
             }
-                 \hfill
-             \subfigure[]{
-            \includegraphics[width=0.6in,height= 0.7in]{figures/margin.png} 
-            }
-                 \hfill
-             \subfigure[]{
-            \includegraphics[width=0.6in,height= 0.7in]{figures/margin2.png} 
-            }
-    \caption{Face Motion Analysis. (a) The worst case of high motion of the interviewer; (b) the most steady interviewer. In all cases the interviewers are instructed to limit their head movement as much as possible; (c) and (d) represent the 20 px threshold radius surrounding the face key points. This threshold results in full face coverage across all interviews.}
+%                 \hfill
+%             \subfigure[]{
+%            \includegraphics[width=0.6in,height= 0.7in]{figures/margin.png} 
+%            }
+%                 \hfill
+%             \subfigure[]{
+%            \includegraphics[width=0.6in,height= 0.7in]{figures/margin2.png} 
+%            }
+    \caption{Face Motion Analysis. Size of the circles represent the spatial variability of a keypoint over the length of an interview. (a) The interviewer with the greatest facial movement; (b) the interviewer with the least; %(c) and (d) represent the 20 px threshold radius surrounding the face key points. This threshold results in full face coverage across all interviews.
+    	}
 \label{fig:PERSON}
 \end{figure}
 
 \begin{figure*}[ht]   
 \centering
-           \includegraphics[width=\textwidth]{figures/system.png}           
+           \includegraphics[width=0.7\textwidth]{figures/system.png}           
  \caption{System Architecture. The environment is composed of an interviewer (1) facing a participant (2) who wears a remote eye-tracker (3) while a fixed-camera (4) faces the interviewer. Facial landmarks (5) on the interviewer's face are extracted from the raw video and we map the eye-tracking data onto these landmarks. This mapping is then clustered into semantic facial regions (6) and we represent these facial regions using state vectors (7). Sub-sequences of features (8) are used to train classification algorithms (9). Finally, the full feature sequences of  unseen participants (10) are used to predict their developmental disorder (11).}
 \label{fig:system_architecture}
 \end{figure*}
@@ -161,13 +185,13 @@ The assistive system takes as input multi-sensorial eye-tracking and video data 
 A goal of our work is to build proper descriptive features that simultaneously provide insight into these disorders and allow for accurate classification between them. These features are the building blocks of our system, and the key challenge is engineering them to properly distill the most meaningful parts out of the raw eye-tracker and video footage.  
 
 \subsection{Face Landmark Extraction}
-For each video frame we compute a set of landmarks on the face of the interviewer using a deformable-parts-model based approach \cite{dpmface}. We reduce the bias of the interviewer by filtering out the frames where the interviewer is not facing the participant. This represents $<$1\% of all frames.
+As shown in Figure \ref{fig:environment} for each video frame we compute a set of landmarks on the face of the interviewer using a deformable-parts-model based approach \cite{dpmface}. We reduce the bias of the interviewer by filtering out the frames where the interviewer is not facing the participant. This represents $<$1\% of all frames.
 
-We include 58,587 frames for the 19 developmental disorder participants, 56,109 frames for the 19 FXS-female participants, and 94,214 frames for the 51 FXS-Male participants, at a frame rate of 5 fps (down-sampled for efficiency). On each frame we computed 69 landmarks, for a a total of 14,414,790 over all frames, using 500 cores over 96 hours. Landmark quality was evaluated on a sample of 1000 randomly selected frames, out of which only a single frame was incorrectly annotated. Figure \ref{fig:environment} shows an example of facial landmarks, and Figure \ref{fig:PERSON}(a)(b) shows the spatial range of the landmarks across two different interviewers. The interviewer's face is spatially stable during the interview and that these results are consistent across the interviews. 
+We include 58,587 frames for the 19 developmental disorder participants, 56,109 frames for the 19 FXS-female participants, and 94,214 frames for the 51 FXS-Male participants, at a frame rate of 5 fps (down-sampled for efficiency). On each frame we computed 69 landmarks, for a a total of 14,414,790 over all frames, using 500 cores over 96 hours. Landmark quality was evaluated on a sample of 1000 randomly selected frames, out of which only a single frame was incorrectly annotated. Figure \ref{fig:environment} shows an example of facial landmarks, and Figure \ref{fig:PERSON}(a)(b) shows the spatial range of the landmarks across two different interviewers. 
  
 \subsection{Feature Construction}
 \label{ssec:feature_construction}
-The eye-tracking system is calibrated to the camera coordinate system. We mapped the eye-tracking coordinates to the facial landmark coordinates with a linear transformation. The participant's point of gaze was considered to be on a particular facial landmark when the reported point of gaze was within a 20 px. radius (Figure \ref{fig:PERSON}(c)(d)); this value reflects the approximate error in the eye-tracker's estimates of patient point-of-gaze ($\sim$1 degree of visual angle). 
+The eye-tracking system is calibrated to the camera coordinate system. We mapped the eye-tracking coordinates to the facial landmark coordinates with a linear transformation. The participant's point of gaze was considered to be on a particular facial landmark when the reported point of gaze was within a 20 pixel radius. %(Figure \ref{fig:PERSON}(c)(d)); this value reflects the approximate error in the eye-tracker's estimates of patient point-of-gaze ($\sim$1 degree of visual angle). 
 % This value is manually defined to cover the interviewer's entire face.
 
 \begin{figure}[h]
@@ -178,7 +202,7 @@ The eye-tracking system is calibrated to the camera coordinate system. We mapped
     \label{fig:feats}
 \end{figure}
 
-We clustered the 69 landmarks into 6 regions: \textit{not looking at the face, nose, left eye, right eye, mouth, jaw} (Figure \ref{fig:feats}). 
+We clustered the 69 landmarks into 6 regions of psychiatric interest: \textit{not looking at the face, nose, left eye, right eye, mouth, jaw} (Figure \ref{fig:feats}). 
 To capture the independent value of these regions (which play substantially different social roles for individuals on the autism spectrum \cite{klin2002}), we represent these regions as state vectors (Figure \ref{fig:statevectors}).
 
 %To convert this time-series into temporal features for learning algorithms we select a time-window of length \textit{n} and a time-step \textit{s} to form a feature matrix as follows: 
@@ -346,11 +370,11 @@ With corresponding labels vector $Y=[Y_1,...Y_m]$ where the label $Y_i$ is eithe
 
 \subsection{State Vector CNN}
 \label{sec:CNN}
-Convolutional neural networks are good models for representing data with highly correlated features (e.g.  speech and image \cite{Krizhevsky:2012wl, hamidss, Bouvrie:2006vb,lecun}). Our feature sequences fit this data profile. We propose a one-dimensional convolutional neural network approach that can exploit the local-temporal relationship between state vectors. Our state vector CNN (S-CNN) works with states represented by sparse vectors. %It takes as inputs sub-sequences of features $q=[f_i,...f_{i+w}]$ of length $w$ where each sub-sequence is labeled 0 or 1.
+Convolutional neural networks are good models for representing data with highly correlated features (e.g.  speech and image \cite{Krizhevsky:2012wl, hamidss, Bouvrie:2006vb,lecun}). The feature sequences fit this data profile. We propose a one-dimensional convolutional neural network approach that can exploit the local-temporal relationship between state vectors. The state vector CNN (S-CNN) works with states represented by sparse vectors. %It takes as inputs sub-sequences of features $q=[f_i,...f_{i+w}]$ of length $w$ where each sub-sequence is labeled 0 or 1.
 
 %\subsubsection{Network Configuration}
 
-Figure \ref{fig:conv} depicts the architecture of our S-CNN. It is composed of one hidden layer of $U=6$ convolutional units followed by point-wise sigmoidal nonlinearities. The feature vectors computed across the units are concatenated and fed to an output layer composed of an affinity followed by another sigmoid function.
+Figure \ref{fig:conv} depicts the architecture of the S-CNN. It is composed of one hidden layer of $U=6$ convolutional units followed by point-wise sigmoidal nonlinearities. The feature vectors computed across the units are concatenated and fed to an output layer composed of an affinity followed by another sigmoid function.
 
 Recalling the state-vector representation of the features $f=<x_1,x_2,...x_6 >$ where $x_i \in \{0,1\}$ we now represent the input rows $q$ of $X$ to the CNN in this state-vector form $q=[x_i,...,x_{i+l}]$ where $l$ is the new dimensionality of the input data under this extension.
 
@@ -465,7 +489,7 @@ Where $C_1, C_2 \in \{\text{DD}, \text{FXS-F}, \text{FXS-M}\}$, $\text{Class}(s)
 
 By varying the classification methods described in Section \ref{sec:classification} we perform a quantitative evaluation of the overall system.
 
-We assume the gender of the patient is known, and select the clinically-relevant pair-wise classification experiments DD vs FXS-F and DD vs FXS-M. For the experiments we use 32 FXS-male, 19 FXS-female and 19 DD participants. To maintain equal data distribution in training and testing we build $S_{train}$ and and $S_{test}$ randomly shuffling participants of each class ensuring a 50\%/50\% distribution of the two participant classes over the sets. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We classify the developmental disorder of the participants, given their individual time-series feature data $p$, to evaluate the precision of our system. For N total participants, we create an 80\%/20\% training/testing dataset $S_{train} = \{ p^1, p^2, .... p^{0.8 N} \}$ and $S_{test} = \{ p^{0.8N + 1}, .... p^N \}$  such that no patient's data is shared between the two datasets. We perform 10-fold cross validation where each fold is defined by a new random 80/20 split of the participants. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We compare our custom S-CNN to SVM, NB, and HMM models using feature windows corresponding to 3, 10, and 50 seconds of video footage. These window lengths correspond to the observations presented in section \ref{sec:classification}.
+We assume the gender of the patient is known, and select the clinically-relevant pair-wise classification experiments DD vs FXS-F and DD vs FXS-M. For the experiments we use 32 FXS-male, 19 FXS-female and 19 DD participants. To maintain equal data distribution in training and testing we build $S_{train}$ and and $S_{test}$ randomly shuffling participants of each class ensuring a 50\%/50\% distribution of the two participant classes over the sets. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We classify the developmental disorder of the participants, given their individual time-series feature data $p$, to evaluate the precision of our system. For N total participants, we create an 80\%/20\% training/testing dataset $S_{train} = \{ p^1, p^2, .... p^{0.8 N} \}$ and $S_{test} = \{ p^{0.8N + 1}, .... p^N \}$  such that no patient's data is shared between the two datasets. We perform 10-fold cross validation where each fold is defined by a new random 80/20 split of the participants. At each new training/testing fold the process is repeated so that the average classification results will represent the entire set of participants. We compare the S-CNN to SVM, NB, and HMM models using feature windows corresponding to 3, 10, and 50 seconds of video footage. These window lengths correspond to the observations presented in section \ref{sec:classification}.
 
 The system is evaluated on the average precision with which it discerns developmental disorders. The results are reported in Table  \ref{table:profiler}. We find that the highest average precision is attained using the S-CNN model with a 10 second time window. It classifies DD versus FXS-F with 0.68 precision and DD versus FXS-M with 0.90 precision, a remarkably high pair of accuracies given the challenges of working with such a noisy dataset. 
 
@@ -498,7 +522,7 @@ S-CNN & 3 & 0.68 & 0.82 \\
 
 
 \end{tabular}
-\caption{Comparison of precision of our system against other classifiers. Columns denote pairwise classification precision of participants for DD vs FXS-female and DD vs FXS-male binary classification. Classifiers are run on 3,10, and 50 second time windows. We compare our system classifier, S-CNN, to SVM, NB, and HMM algorithms.}
+\caption{Comparison of precision of our system against other classifiers. Columns denote pairwise classification precision of participants for DD vs FXS-female and DD vs FXS-male binary classification. Classifiers are run on 3,10, and 50 second time windows. We compare the system classifier, S-CNN, to SVM, NB, and HMM algorithms.}
 \label{table:profiler}
 \end{table}
 
