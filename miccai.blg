@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: miccai.aux
+The style file: splncs03.bst
+Database file #1: fxs-miccai.bib
+Warning--empty year in entrophy
+You've used 24 entries,
+            2785 wiz_defined-function locations,
+            754 strings with 9592 characters,
+and the built_in function-call counts, 14733 in all, are:
+= -- 1208
+> -- 526
+< -- 33
++ -- 214
+- -- 189
+* -- 980
+:= -- 1900
+add.period$ -- 31
+call.type$ -- 24
+change.case$ -- 171
+chr.to.int$ -- 0
+cite$ -- 25
+duplicate$ -- 1298
+empty$ -- 1207
+format.name$ -- 212
+if$ -- 3154
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 279
+newline$ -- 77
+num.names$ -- 52
+pop$ -- 462
+preamble$ -- 1
+purify$ -- 139
+quote$ -- 0
+skip$ -- 385
+stack$ -- 0
+substring$ -- 829
+swap$ -- 791
+text.length$ -- 33
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 96
+warning$ -- 1
+while$ -- 117
+width$ -- 26
+write$ -- 249
+(There was 1 warning)
