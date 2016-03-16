@@ -1,0 +1,7 @@
+build.sh
+*.aux
+*.blg
+*.brf
+*.log
+*.bbl
+*.synctex.gz
