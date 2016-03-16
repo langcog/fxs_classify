@@ -2,6 +2,11 @@
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
+\bibitem{JozefowiczZS15}
+An empirical exploration of recurrent network architectures. In: Bach, F.R.,
+  Blei, D.M. (eds.) ICML. JMLR Proceedings, vol.~37, pp. 2342--2350. JMLR.org
+  (2015)
+
 \bibitem{Boraston}
 Boraston, Z., Blakemore, S.J.: {The application of eye-tracking technology in
   the study of autism}. The Journal of Physiology  581(3),  893--898 (Jun 2007)
@@ -21,30 +26,16 @@ Csibra, G., Gergely, G.: {Social learning and social cognition: The case for
   pedagogy}. In Process of change in brain and cognitive development, attention
   and performance XXI  (2006)
 
-\bibitem{dalton}
-Dalton, K.M., Nacewicz, B.M., Johnstone, T., Schaefer, H.S., Gernsbacher, M.A.,
-  Goldsmith, H.H., Alexander, A.L., Davidson, R.J.: {Gaze fixation and the
-  neural circuitry of face processing in autism}. Nature Neuroscience  8(4),
-  519--526 (Apr 2005)
-
-\bibitem{Emery:2000ug}
-Emery, N.J.: {The eyes have it: the neuroethology, function and evolution of
-  social gaze.} Neuroscience {\&} Biobehavioral Reviews  24(6),  581--604
-  (2000)
-
 \bibitem{Hagerman:2008wg}
 Hagerman, P.J.: {The fragile X prevalence paradox}. Journal of medical genetics
    (2008)
 
-\bibitem{Hall:2006jd}
-Hall, S., DeBernardis, M., Reiss, A.: {Social escape behaviors in children with
-  fragile X syndrome.} Journal of Autism and Developmental Disorders  36(7),
-  935--947 (2006)
-
-\bibitem{Hall:2012ge}
-Hall, S.S., Lightbody, A.A., McCarthy, B.E., Parker, K.J., Reiss, A.L.:
-  {Effects of intranasal oxytocin on social anxiety in males with fragile X
-  syndrome.} Psychoneuroendocrinology  37(4),  509--518 (2012)
+\bibitem{hall2015quantifying}
+Hall, S.S., Frank, M.C., Pusiol, G.T., Farzin, F., Lightbody, A.A., Reiss,
+  A.L.: Quantifying naturalistic social gaze in fragile x syndrome using a
+  novel eye tracking paradigm. American Journal of Medical Genetics Part B:
+  Neuropsychiatric Genetics  (2015),
+  \url{http://langcog.stanford.edu/papers_new/hall-2015-ajmg.pdf}
 
 \bibitem{hashemi}
 Hashemi, J., Spina, T.V., Tepper, M., Esler, A., Morellas, V.,
@@ -57,11 +48,6 @@ Hashemi, J., Spina, T.V., Tepper, M., Esler, A., Morellas, V.,
 Jones, W., Klin, A.: Attention to eyes is present but in decline in
   2-6-month-old infants later diagnosed with autism. Nature  (2013)
 
-\bibitem{JozefowiczZS15}
-J—zefowicz, R., Zaremba, W., Sutskever, I.: An empirical exploration of
-  recurrent network architectures. In: Bach, F.R., Blei, D.M. (eds.) ICML. JMLR
-  Proceedings, vol.~37, pp. 2342--2350. JMLR.org (2015)
-
 \bibitem{klin2002}
 Klin, A., Jones, W., Schultz, R., Volkmar, F., Cohen, D.: Visual fixation
   patterns during viewing of naturalistic social situations as predictors of
@@ -73,16 +59,6 @@ Kumar, Y., Dewal, M.L., Anand, R.S.: {Epileptic seizure detection using DWT
   based fuzzy approximate entropy and support vector machine}. Neurocomputing
   133 (Jun 2014)
 
-\bibitem{Morales:2000br}
-Morales, M., Mundy, P., Delgado, C.E., Yale, M., Neal, R., Schwartz, H.K.:
-  {Gaze following, temperament, and language development in 6-month-olds: A
-  replication and extension}. Infant Behavior and Development  23(2),  231--236
-  (2000)
-
-\bibitem{Pimentel:1999vx}
-Pimentel, M.M.M.: {Fragile X syndrome (review).} International Journal of
-  Molecular Medicine  3(6),  639--645 (1999)
-
 \bibitem{RAG33}
 Rehg, J.M., Rozga, A., Abowd, G.D., Goodwin, M.S.: Behavioral imaging and
   autism. {IEEE} Pervasive Computing  13(2),  84--87 (2014),
@@ -93,26 +69,12 @@ Restrepo, J.F., Schlotthauer, G., Torres, M.E.: {Maximum approximate entropy
   and r threshold: A new approach for regularity changes detection}. arXiv.org
   nlin.CD (2014)
 
-\bibitem{sabeti}
-Sabeti, M., Katebi, S., Boostani, R.: {Entropy and complexity measures for EEG
-  signal classification of schizophrenic and control participants}. Artificial
-  Intelligence in Medicine  47(3) (Nov 2009)
-
-\bibitem{Sullivan:2006jc}
-Sullivan, K., Hatton, D., Hammer, J., Sideris, J., Hooper, S., Ornstein, P.,
-  Bailey, D.: {ADHD symptoms in children with FXS.} American Journal of Medical
-  Genetics Part A  140(21),  2275--2288 (2006)
-
 \bibitem{Sullivan:2007gz}
 Sullivan, K., Hatton, D.D., Hammer, J., Sideris, J., Hooper, S., Ornstein,
   P.A., Bailey, D.B.: {Sustained attention and response inhibition in boys with
   fragile X syndrome: measures of continuous performance.} American Journal of
   Medical Genetics. Part B: Neuropsychiatric Genetics  144B(4),  517--532
   (2007)
-
-\bibitem{SutskeverVL14}
-Sutskever, I., Vinyals, O., Le, Q.V.: Sequence to sequence learning with neural
-  networks. CoRR  abs/1409.3215 (2014), \url{http://arxiv.org/abs/1409.3215}
 
 \bibitem{NIPS2015_5635}
 Vinyals, O., Kaiser, L.u., Koo, T., Petrov, S., Sutskever, I., Hinton, G.:
