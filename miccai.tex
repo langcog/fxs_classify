@@ -40,7 +40,7 @@
 
   %%%%%%%%% TITLE
   \title{Vision-Based Classification of Developmental Disorders Using Eye-Movements}
-  \author{Submission: 1}
+  \author{Submission: 875}
   \institute{}
   %\author{Guido Pusiol\inst{1} \and Andre Esteva\inst{2}
   %	\and Li Fei-Fei \inst{1}
@@ -131,7 +131,7 @@
   \vspace{-1.5em}
   \section{Dataset}
   \vspace{-1.5em}
-  Our raw data are 70 videos of an clinician interviewing a participant, overlaid with the participant's point of gaze (as measure by a remote eye-tracker), first reported in \cite{hall2015quantifying}.
+  Our raw data are 70 videos of an clinician interviewing a participant, overlaid with the participant's point of gaze (as measure by a remote eye-tracker), first reported in [Blind Review]%\cite{hall2015quantifying}.
   % \textcolor{red}{Explain that raw eye-tracking has no value without knowing what the visual fixation's target is. Cite Scott's paper}
   % \vspace*{-\baselineskip}
   %
@@ -149,36 +149,41 @@
   \section{Visual Fixation Features}
   \vspace{-1 em}
   \label{sec:feature_extraction}
-  A goal of our work is to design features that simultaneously provide insight into these disorders and allow for accurate classification between them. These features are the building blocks of our system, and the key challenge is engineering them to properly distill the most meaningful parts out of the raw eye-tracker and video footage. We capture the participant's point of gaze and its distribution over the interviewer's face, 5 times per second during the whole interview. There are 6 relevant regions of interest: \textit{nose, left eye, right eye, mouth, jaw, outside face}. The precise detection of these fine-grained features enables us to study smalll changes in participants' fixations at scale.
-  % This behavior play substantially different social roles for individuals on the autism spectrum \cite{klin2002}.
-  % \vspace{-2 em}
-  % \subsubsection{ Implementation.}
+A goal of our work is to design features that simultaneously provide insight into these disorders and allow for accurate classification between them. These features are the building blocks of our system, and the key challenge is engineering them to properly distill the most meaningful parts out of the raw eye-tracker and video footage. We capture the participant's point of gaze and its distribution over the interviewer's face, 5 times per second during the whole interview. There are 6 relevant regions of interest: \textit{nose, left eye, right eye, mouth, jaw, outside face}. The precise detection of these fine-grained features enables us to study smalll changes in participants' fixations at scale.
 
-  For each video frame, we detected a set of 69 landmarks on the interviewer's face using a part-based model \cite{dpmface}. Figure \ref{fig:pull_figure} shows examples of landmark detections. In total, we processed 14,414,790 landmarks. % over 96 hours.
-  We computed ~59K, ~56K and ~156K frames for DD, FXS-Female, and FXS-Male groups respectively. We evaluated a sample of 1K randomly selected frames, out of which only a single frame was incorrectly annotated. We mapped the eye-tracking coordinates to the facial landmark coordinates with a linear transformation. Our features take the label of the cluster (e.g. jaw) holding the closest landmark to the participant point of gaze. We next present some descriptive analyses of these data.
+% This behavior play substantially different social roles for individuals on the autism spectrum \cite{klin2002}.
+% \vspace{-2 em}
+% \subsubsection{ Implementation.}
 
-  % \vspace{-2 em}
-  % \subsection{Descriptive Analyses}
-  % \vspace{-1 em}
-  % We next present a number of descriptive analyses of the dataset that explore the complexity of this rich data.% and justify the importance of using
-  % \vspace{-1 em}
-  % \subsubsection{Feature Granularity.}
+For each video frame, we detected a set of 69 landmarks on the interviewer's face using a part-based model \cite{dpmface}. Figure \ref{fig:pull_figure} shows examples of landmark detections. In total, we processed 14,414,790 landmarks. % over 96 hours.
+We computed ~59K, ~56K and ~156K frames for DD, FXS-Female, and FXS-Male groups respectively. We evaluated a sample of 1K randomly selected frames, out of which only a single frame was incorrectly annotated. We mapped the eye-tracking coordinates to the facial landmark coordinates with a linear transformation. Our features take the label of the cluster (e.g. jaw) holding the closest landmark to the participant point of gaze. We next present some descriptive analyses of these data.
 
-  \paragraph{Feature granularity.} Participants---especially those with FXS---spent the majority of the interview looking away from the interviewer, and only a fraction of the time at the interviewer's face (Figure \ref{fig:histo}). Yet clinicians often express the opinion that the \emph{distribution} of fixations, not just the sheer lack of face fixations---seem related to the general autism phenotype \cite{klin2002,jones2013}. This opinion is supported by the distributions in Figure \ref{fig:histo}(d)-(f): DD and FXS-F are quite similar, whereas FXS-M is distinct. FXS-M focuses primarily on mouth (4) and nose (1) areas.
 
-  \begin{figure}[t]
-    %\subfigure[ DD]{
-    % \includegraphics[width=0.6in,height= 0.7in]{figures/semdd.png}
-    % }
-    %  \hfill
-    % \subfigure[FXS-F]{
-    % \includegraphics[width=0.6in,height= 0.7in]{figures/semfemale.png}
-    %  }
-    %    \hfill
-    %   \subfigure[FXS-M]{
-    %   \includegraphics[width=0.7in,height= 0.7in]{figures/semmale.png}
-    %    }
-    %  \hfill
+\paragraph{Feature granularity.} We want to analyze the relevance of our fine grained attention features.
+Participants---especially those with FXS---spent only a fraction of the time at the interviewer's face. Analyzing the time series-data of when individuals are glancing at the face of their interviewer (See Figure \ref{fig:sticky}), we observe high inter-group participant's variance. For example, most of FXS-F individual sequences could be easily confused with the other groups.
+   \begin{figure}[t]
+    \subfigure[DD]{
+    \includegraphics[width=1.5in,height= 1in]{figures/FXSF-face.png}
+    }
+     \hfill
+     \subfigure[FXS-F]{
+     \includegraphics[width=1.5in,height= 1in]{figures/DD-face.png}
+    }
+     \hfill
+     \centering
+    \subfigure[FXS-M]{
+     \includegraphics[width=1.5in,height= 1in]{figures/FXSM-face.png}
+     }
+  
+     \caption{Temporal analysis of attention to face. X axis represents time in frames (in increments of 0.2 seconds). Y axis represents each participant. Black dot represent time points when the participant was looking at the interviewer's face. White space signifies that they were not.}
+    \label{fig:sticky}
+   \end{figure}
+%In Figure \ref{fig:sticky} we show time-series data of when individuals are glancing at the face of their interviewer or away from it. It can be noticed that there is significant variance among individuals of the same group. In particular FXS-F sequences can be easily confused with the other two groups. Using solely face fixations as a feature could fall short for classification. 
+Clinicians often express the opinion that the \emph{distribution} of fixations, not just the sheer lack of face fixations---seem related to the general autism phenotype \cite{klin2002,jones2013}. This opinion is supported by the distributions in Figure \ref{fig:histo}: DD and FXS-F are quite similar, whereas FXS-M is distinct. FXS-M focuses primarily on mouth (4) and nose (1) areas.
+  
+
+
+  \begin{figure}[h]
     \subfigure[DD]{
     \includegraphics[width=1.5in,height= 0.7in]{figures/semdd-face.png}
     }
@@ -195,12 +200,16 @@
     \vspace{-2ex}
   \end{figure}
 
-  % \vspace{-2em}
-  % \subsubsection{Attentional transitions.}
+%There is significant variance among individuals in the same group, making it challenging to classify between them. For example, Figure \ref{fig:sticky} shows time-series data of when individuals are glancing at the face of their interviewer or away from it. Note the varying sparsity of FXS males---some individuals glance at the face very frequently, whereas others may spend several minutes without looking at it. FXS females can easily be confused with the other two groups. DD participants, on the other hand, tend to have a much higher frequency of glancing at the face, though a few participants also spend noticeable amounts of time looking away from it.
+  
+
+
+
+
 
   \paragraph{Attentional transitions.} In addition to the distribution of fixations, clinicians also believe that the \emph{sequence} of fixations describe underlying behavior. In particular, FXS participants often glance to the face quickly and then look away, or scan between non-eye regions. Figure \ref{fig:transitions} shows region-to-region transitions in a heatmap. There is a marked difference between the different disorders: Individuals with DD make more transitions, while those with FXS exhibit significantly less---congruent with the clinical intuition. The transitions between facial regions better identify the three groups than the transitions from non-face to face regions. FXS-M participants tend to swap their gaze quite frequently between mouth and nose, while the other two do not. DD participants exhibit much more movement between facial regions, without any clear preference. FXS-F patterns resemble DD, though the pattern is less pronounced.
-
-  \begin{figure}[b]
+  
+  \begin{figure}[t]
     \subfigure[DD]{
     \includegraphics[width=1.5in,height= 0.7in]{figures/transdd.png}
     }
@@ -215,32 +224,12 @@
     \caption{Matrix of attentional transitions for each disorder. Each square $[ij]$ represents the aggregated number of times participants of each group transitioned attention from state $i$ to state $j$.  The axes represent the different states: non-face (0), nose (1), eye-left (2), eye-right (3), mouth (4), and jaw (5).}
     \label{fig:transitions}
   \end{figure}
-  %FXS females exhibit similar sparsity amongst some individuals and much more consistent face-glancing amongst others.
 
-  % There is significant variance among individuals in the same group, making it challenging to classify between them. For example, Figure \ref{fig:sticky} shows time-series data of when individuals are glancing at the face of their interviewer or away from it. Note the varying sparsity of FXS males---some individuals glance at the face very frequently, whereas others may spend several minutes without looking at it. FXS females can easily be confused with the other two groups. DD participants, on the other hand, tend to have a much higher frequency of glancing at the face, though a few participants also spend noticeable amounts of time looking away from it.
-  %
-  % \begin{figure}[t]
-  %   \subfigure[DD]{
-  %   \includegraphics[width=1.5in,height= 1in]{figures/FXSF-face.png}
-  %   }
-  %   \hfill
-  %   \subfigure[FXS-F]{
-  %   \includegraphics[width=1.5in,height= 1in]{figures/DD-face.png}
-  %   }
-  %   \hfill
-  %   \centering
-  %   \subfigure[FXS-M]{
-  %   \includegraphics[width=1.5in,height= 1in]{figures/FXSM-face.png}
-  %   }
-  %
-  %   \caption{Temporal analysis of attention to face. X axis represents time in frames (in increments of 0.2 seconds). Y axis represents each participant. Black dot represent time points when the participant was looking at the interviewer's face. White space signifies that they were not.}
-  %   \label{fig:sticky}
-  % \end{figure}
 
   % \vspace*{-\baselineskip}
   \paragraph{Approximate Entropy.} We next estimate Approximate Entropy ($ApEn$) analysis to provide a measure of how predictable a sequence is \cite{Restrepo:2014gs,entrophy} . A lower entropy value indicates a higher degree of regularity in the signal. For each group (DD, FXS-Female, FXS-Male), we selected 10 random participants sequences. We compute $ApEn$ by varying $w$ (sliding window length). Figure \ref{fig:individual_entropy} depicts this analysis. We can see that there is great variance amongst individuals of each population, many sharing similar entropy with participants of other groups.
 
-  \begin{figure}[t]
+  \begin{figure}[h]
     \centering
     \subfigure[DD]{
     \includegraphics[width=1.5in,height= 1in]{figures/DDen}
@@ -262,14 +251,14 @@
     \label{fig:individual_entropy}
 
   \end{figure}
-  %(d) Analysis of entropy per group. We can see that, in average, DD are the most unpredictable sequences.
-  %We measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each group $S_c$, we selected 10 random participants (about 30,000 features ${f}_i$). The tolerance parameter $r=0.1k$, for $k=1...30$ defines the tolerance $R = \text{std}(Q)r$. Figure \ref{fig:entropy}(a) depicts the $ApEn$ for $m=3$ while varying r. The FXS-M data is more stable than DD and FXS-F data, which share a similar entropy. To estimate $ApEn(R, m, N)$ for a length N feature sequence, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$. We fix $\tau=1$, $r=1$ and vary $w$ in order to understand the volatility of the signals from frame to frame. Figure \ref{fig:individual_entropy} depicts the analysis of participant sequences. We can see that there is great variance amongst individuals of each population.
+%(d) Analysis of entropy per group. We can see that, in average, DD are the most unpredictable sequences.
+%We measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each group $S_c$, we selected 10 random participants (about 30,000 features ${f}_i$). The tolerance parameter $r=0.1k$, for $k=1...30$ defines the tolerance $R = \text{std}(Q)r$. Figure \ref{fig:entropy}(a) depicts the $ApEn$ for $m=3$ while varying r. The FXS-M data is more stable than DD and FXS-F data, which share a similar entropy. To estimate $ApEn(R, m, N)$ for a length N feature sequence, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$. We fix $\tau=1$, $r=1$ and vary $w$ in order to understand the volatility of the signals from frame to frame. Figure \ref{fig:individual_entropy} depicts the analysis of participant sequences. We can see that there is great variance amongst individuals of each population.
 
-  %given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$.
+%given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$.
 
-  %We employ ($ApEn$) analysis \cite{Restrepo:2014gs,entrophy} to further emphasize the similarity between DD and FXS-F signals and the difference between FXS-M and the other two. $ApEn$ measures the logarithmic likelihood that if two vectors $(q^{w}_{i}, q^{w}_{j})$ representing feature sequences of length $w$ are within a distance $R$, called the tolerance, in a w-dimensional space, then they remain within R in a $(w + 1)$-dimensional space when their length is extended by an extra feature. Greater (lesser) likelihood of remaining close produces smaller (larger) $ApEn$ values. To estimate $ApEn(R, m, N)$ for a length N feature sequence $Q={\bar{f}_1, \bar{f}_2, . . . , \bar{f}_{N}}$, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$, we define the $w$-dimensional embedded vectors $q^{m}_{i}=[\bar{f}_{i}, \bar{f}_{i+\tau}, \bar{f}_{i+2\tau}, . . . , \bar{f}_{i+(m-1)\tau}]$, with $1 \leq i \leq N-(m-1)\tau$.
+%We employ ($ApEn$) analysis \cite{Restrepo:2014gs,entrophy} to further emphasize the similarity between DD and FXS-F signals and the difference between FXS-M and the other two. $ApEn$ measures the logarithmic likelihood that if two vectors $(q^{w}_{i}, q^{w}_{j})$ representing feature sequences of length $w$ are within a distance $R$, called the tolerance, in a w-dimensional space, then they remain within R in a $(w + 1)$-dimensional space when their length is extended by an extra feature. Greater (lesser) likelihood of remaining close produces smaller (larger) $ApEn$ values. To estimate $ApEn(R, m, N)$ for a length N feature sequence $Q={\bar{f}_1, \bar{f}_2, . . . , \bar{f}_{N}}$, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$, we define the $w$-dimensional embedded vectors $q^{m}_{i}=[\bar{f}_{i}, \bar{f}_{i+\tau}, \bar{f}_{i+2\tau}, . . . , \bar{f}_{i+(m-1)\tau}]$, with $1 \leq i \leq N-(m-1)\tau$.
 
-  %We measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each group $S_c$, we selected 10 random participants (about 30,000 features ${f}_i$). The tolerance parameter $r=0.1k$, for $k=1...30$ defines the tolerance $R = \text{std}(Q)r$. Figure \ref{fig:entropy}(a) depicts the $ApEn$ for $m=3$ while varying r. The FXS-M data is more stable than DD and FXS-F data, which share a similar entropy. To estimate $ApEn(R, m, N)$ for a length N feature sequence, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$. We fix $\tau=1$, $r=1$ and vary $w$ in order to understand the volatility of the signals from frame to frame. Figure \ref{fig:individual_entropy} depicts the analysis of participant sequences. We can see that there is great variance amongst individuals of each population.
+%We measured the $ApEn$ of our 3 groups (DD, FXS-Female, FXS-Male). For each group $S_c$, we selected 10 random participants (about 30,000 features ${f}_i$). The tolerance parameter $r=0.1k$, for $k=1...30$ defines the tolerance $R = \text{std}(Q)r$. Figure \ref{fig:entropy}(a) depicts the $ApEn$ for $m=3$ while varying r. The FXS-M data is more stable than DD and FXS-F data, which share a similar entropy. To estimate $ApEn(R, m, N)$ for a length N feature sequence, given the parameters $w$ (window length), $\tau \in \mathbb{N}$ (subsampling coefficient), and $r \in \mathbb{R}^+$. We fix $\tau=1$, $r=1$ and vary $w$ in order to understand the volatility of the signals from frame to frame. Figure \ref{fig:individual_entropy} depicts the analysis of participant sequences. We can see that there is great variance amongst individuals of each population.
 
 
 
@@ -322,10 +311,11 @@
   Where $C_1, C_2 \in \{\text{DD}, \text{FXS-F}, \text{FXS-M}\}$, $\text{Class}(s)$ is the output of a classifier given input $s$. We use 10 cross validation folds to compute the average classification precision.
 
   \vspace*{-\baselineskip}
-  \paragraph{Results.} The results are reported in Table  \ref{table:profiler}. We find that the highest average precision is attained using the CNN model with a 10 second time window. It classifies DD versus FXS-F with 0.68 precision and DD versus FXS-M with 0.90 precision, a remarkably high pair of accuracies given the challenges of working with such a noisy dataset.
+  \paragraph{Results.} The results are reported in Table  \ref{table:profiler}. We find that the highest average precision is attained using the CNN model with a 10 second time window. It classifies DD versus FXS-F with 0.86 precision and DD versus FXS-M with 0.91 precision.
 
   \begin{table}[t]
     \centering
+ %\begin{singlespace}   
     \begin{tabular}{c|c|c|c}
       & window length & DD vs FXS-female (precision) & DD vs FXS-male (precision)\\
       \hline
@@ -347,18 +337,17 @@
       CNN & 3 & 0.68 & 0.82 \\
       & 10 & 0.68 & 0.90\\
       & 50 & 0.55 & 0.77\\
-      \Xhline{4\arrayrulewidth}
+   %   \Xhline{4\arrayrulewidth}
       \hline
       1\_RNN  & 3 &  0.69 & 0.79 \\
-      2\_RNN  & 10 &   0.79 & PROCESSING\\
-      3\_RNN  &  50 & {\bf 0.86} & 0.91\\
-    \end{tabular}
+      2\_RNN  & 10 &   0.79 &  0.81\\
+      3\_RNN  &  50 & {\bf 0.86} & {\bf 0.91}\\
 
-    \caption{Comparison of precision of our system against other classifiers. Columns denote pairwise classification precision of participants for DD vs FXS-female and DD vs FXS-male binary classification. Classifiers are run on 3,10, and 50 seconds time windows. We compare the system classifier, RNN to CNN SVM, NB, and HMM algorithms.}
+    \end{tabular}
+    \caption{Comparison of precision of our system against other classifiers. Columns denote pairwise classification precision of participants for DD vs FXS-female and DD vs FXS-male binary classification. Classifiers are run on 3,10, and 50 seconds time windows. We compare the system classifier, RNN to CNN, SVM, NB, and HMM algorithms.}
     \label{table:profiler}
   \end{table}
-
-  We hereby demonstrate the use of computer vision and machine learning techniques in a cost-effective system for assistive diagnosis of developmental disorders that exhibit visual phenotypic expression in social interactions. Data of experimenters interviewing participants with developmental disorders was collected using video and a remote eye-tracker. We built visual features corresponding to fine grained attentional fixations, and developed classification models using these features to discern between FXS and idiopathic developmental disorder, achieving accuracies of up to 91\%. Despite finding a high degree of variance and noise in the signals used, our high accuracies imply the existence of temporal structures in the data. The notorious results produced by the RNN could be related to the capacity of the model, and capability of representing complex temporal structures.
+We hereby demonstrate the use of computer vision and machine learning techniques in a cost-effective system for assistive diagnosis of developmental disorders that exhibit visual phenotypic expression in social interactions. Data of experimenters interviewing participants with developmental disorders was collected using video and a remote eye-tracker. We built visual features corresponding to fine grained attentional fixations, and developed classification models using these features to discern between FXS and idiopathic developmental disorder, achieving accuracies of up to 91\%. Despite finding a high degree of variance and noise in the signals used, our high accuracies imply the existence of temporal structures in the data. The notorious results produced by the RNN could be related to the capacity of the model, and capability of representing complex temporal structures.
 
 
   \vspace*{-\baselineskip}
