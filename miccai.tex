@@ -156,7 +156,7 @@ A goal of our work is to design features that simultaneously provide insight int
 % \subsubsection{ Implementation.}
 
 For each video frame, we detected a set of 69 landmarks on the interviewer's face using a part-based model \cite{dpmface}. Figure \ref{fig:pull_figure} shows examples of landmark detections. In total, we processed 14,414,790 landmarks. % over 96 hours.
-We computed \~59K, \~56K and \~156K frames for DD, FXS-Female, and FXS-Male groups respectively. We evaluated a sample of 1K randomly selected frames, out of which only a single frame was incorrectly annotated. We mapped the eye-tracking coordinates to the facial landmark coordinates with a linear transformation. Our features take the label of the cluster (e.g. jaw) holding the closest landmark to the participant point of gaze. We next present some descriptive analyses of these data.
+We computed 59K, 56K and 156K frames for DD, FXS-Female, and FXS-Male groups respectively. We evaluated a sample of 1K randomly selected frames, out of which only a single frame was incorrectly annotated. We mapped the eye-tracking coordinates to the facial landmark coordinates with a linear transformation. Our features take the label of the cluster (e.g. jaw) holding the closest landmark to the participant point of gaze. We next present some descriptive analyses of these data.
 
 
 \paragraph{Feature granularity.} We want to analyze the relevance of our fine grained attention features.
@@ -203,10 +203,6 @@ Clinicians often express the opinion that the \emph{distribution} of fixations, 
 
 %There is significant variance among individuals in the same group, making it challenging to classify between them. For example, Figure \ref{fig:sticky} shows time-series data of when individuals are glancing at the face of their interviewer or away from it. Note the varying sparsity of FXS males---some individuals glance at the face very frequently, whereas others may spend several minutes without looking at it. FXS females can easily be confused with the other two groups. DD participants, on the other hand, tend to have a much higher frequency of glancing at the face, though a few participants also spend noticeable amounts of time looking away from it.
   
-
-
-
-
 
   \paragraph{Attentional transitions.} In addition to the distribution of fixations, clinicians also believe that the \emph{sequence} of fixations describe underlying behavior. In particular, FXS participants often glance to the face quickly and then look away, or scan between non-eye regions. Figure \ref{fig:transitions} shows region-to-region transitions in a heatmap. There is a marked difference between the different disorders: Individuals with DD make more transitions, while those with FXS exhibit significantly less---congruent with the clinical intuition. The transitions between facial regions better identify the three groups than the transitions from non-face to face regions. FXS-M participants tend to swap their gaze quite frequently between mouth and nose, while the other two do not. DD participants exhibit much more movement between facial regions, without any clear preference. FXS-F patterns resemble DD, though the pattern is less pronounced.
   
