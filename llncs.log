@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  14 MAR 2016 22:44
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  11 APR 2016 21:24
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -122,4 +122,74 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \toctitle=\toks17
 \c@theorem=\count100
 \c@case=\count101
-\c@conjectur
+\c@conjecture=\count102
+\c@corollary=\count103
+\c@definition=\count104
+\c@example=\count105
+\c@exercise=\count106
+\c@lemma=\count107
+\c@note=\count108
+\c@problem=\count109
+\c@property=\count110
+\c@proposition=\count111
+\c@question=\count112
+\c@solution=\count113
+\c@remark=\count114
+\headlineindent=\dimen123
+) (./llncsdoc.sty) (./llncs.aux)
+\openout1 = `llncs.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <24.88> on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <20.74> on input line 19.
+ [1
+
+{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 40.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 40.
+
+Runaway argument?
+{ \begin {flushleft} \begin {tabular}{l@{\quad }l@{\hspace {3mm}}l@{\qquad \ETC
+.
+./llncs.tex:67: Paragraph ended before \begin was complete.
+<to be read again> 
+                   \par 
+l.67 
+     
+? 
+./llncs.tex:67: Emergency stop.
+<to be read again> 
+                   \par 
+l.67 
+     
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 632 strings out of 493747
+ 7058 string characters out of 3143546
+ 60729 words of memory out of 3000000
+ 3992 multiletter control sequences out of 15000+200000
+ 8207 words of font info for 29 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 29i,10n,21p,228b,213s stack positions out of 5000i,500n,10000p,200000b,50000s
+./llncs.tex:67:  ==> Fatal error occurred, no output PDF file produced!
